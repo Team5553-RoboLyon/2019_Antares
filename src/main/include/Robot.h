@@ -1,6 +1,7 @@
 #pragma once
 
 #include <frc/WPILib.h>
+#include <ctre/Phoenix.h>
 #include "OI.h"
 
 class Robot : public frc::TimedRobot
