@@ -2,7 +2,9 @@
 
 #include <frc/WPILib.h>
 #include <ctre/Phoenix.h>
-#include "OI.h"
+
+#include "Input.h"
+#include "Output.h"
 
 #include "subsystems/BaseRoulante.h"
 #include "subsystems/Bras.h"
@@ -13,7 +15,9 @@
 class Robot : public frc::TimedRobot
 {
  public:
-  static OI m_oi;
+  static Input m_input;
+  static Output m_output;
+
   static BaseRoulante m_baseRoulante;
   static Bras m_bras;
   static Elevateur m_elevateur;

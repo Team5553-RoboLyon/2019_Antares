@@ -1,7 +1,9 @@
 #include "Robot.h"
 
 
-OI Robot::m_oi;
+Input Robot::m_input;
+Output Robot::m_output;
+
 BaseRoulante Robot::m_baseRoulante;
 Bras Robot::m_bras;
 Elevateur Robot::m_elevateur;
