@@ -5,7 +5,7 @@
 class Input
 {
  public:
-  Input();
+  OI();
   frc::Joystick& GetJoystick();
  
  private:

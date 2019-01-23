@@ -1,12 +1,12 @@
-#include "Input.h"
+#include "OI.h"
 
 
-Input::Input()
+OI::OI()
 {
   // Process operator interface input here.
 }
 
-frc::Joystick& Input::GetJoystick()
+frc::Joystick& OI::GetJoystick()
 {
    return m_joystick;
 }
