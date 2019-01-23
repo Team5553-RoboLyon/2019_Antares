@@ -1,6 +1,7 @@
 #pragma once
 
 #include <frc/WPILib.h>
+#include <frc/shuffleboard/Shuffleboard.h>
 
 class OI
 {
@@ -9,16 +10,16 @@ class OI
   frc::Joystick& GetJoystick();
  
  private:
-  frc::Joystick joystick1{0};
+  frc::Joystick m_joystick{0};
 
-	frc::JoystickButton button1{&joystick1, 1};
-	frc::JoystickButton button2{&joystick1, 2};
-	frc::JoystickButton button3{&joystick1, 3};
-	frc::JoystickButton button4{&joystick1, 4};
-	frc::JoystickButton button5{&joystick1, 5};
-	frc::JoystickButton button8{&joystick1, 8};
-	frc::JoystickButton button9{&joystick1, 9};
-	frc::JoystickButton button10{&joystick1, 10};
-	frc::JoystickButton button11{&joystick1, 11};
-  frc::JoystickButton button12{&joystick1, 12};
+	frc::JoystickButton m_button1{&m_joystick, 1};
+	frc::JoystickButton m_button2{&m_joystick, 2};
+	frc::JoystickButton m_button3{&m_joystick, 3};
+	frc::JoystickButton m_button4{&m_joystick, 4};
+	frc::JoystickButton m_button5{&m_joystick, 5};
+	frc::JoystickButton m_button8{&m_joystick, 8};
+	frc::JoystickButton m_button9{&m_joystick, 9};
+	frc::JoystickButton m_button10{&m_joystick, 10};
+	frc::JoystickButton m_button11{&m_joystick, 11};
+  frc::JoystickButton m_button12{&m_joystick, 12};
 };

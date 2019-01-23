@@ -9,5 +9,5 @@ OI::OI()
 
 frc::Joystick& OI::GetJoystick()
 {
-   return joystick1;
+   return m_joystick;
 }
