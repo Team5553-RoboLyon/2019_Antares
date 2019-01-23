@@ -1,10 +1,10 @@
 #pragma once
 
 #include <frc/WPILib.h>
+#include <frc/smartdashboard/Smartdashboard.h>
 #include <ctre/Phoenix.h>
 
-#include "Input.h"
-#include "Output.h"
+#include "OI.h"
 
 #include "subsystems/BaseRoulante.h"
 #include "subsystems/Bras.h"
@@ -15,8 +15,7 @@
 class Robot : public frc::TimedRobot
 {
  public:
-  static Input m_input;
-  static Output m_output;
+  static OI m_oi;
 
   static BaseRoulante m_baseRoulante;
   static Bras m_bras;

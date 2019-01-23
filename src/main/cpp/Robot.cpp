@@ -1,8 +1,7 @@
 #include "Robot.h"
 
 
-Input Robot::m_input;
-Output Robot::m_output;
+OI Robot::m_oi;
 
 BaseRoulante Robot::m_baseRoulante;
 Bras Robot::m_bras;
@@ -11,7 +10,14 @@ Pince Robot::m_pince;
 Pivot Robot::m_pivot;
 
 
-void Robot::RobotInit() {}
+void Robot::RobotInit()
+{
+  frc::SmartDashboard::PutData(&Robot::m_baseRoulante);
+  frc::SmartDashboard::PutData(&Robot::m_bras);
+  frc::SmartDashboard::PutData(&Robot::m_elevateur);
+  frc::SmartDashboard::PutData(&Robot::m_pince);
+  frc::SmartDashboard::PutData(&Robot::m_pivot);
+}
 
 void Robot::RobotPeriodic() {}
 
