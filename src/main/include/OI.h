@@ -2,7 +2,7 @@
 
 #include <frc/WPILib.h>
 
-class Input
+class OI
 {
  public:
   OI();
