@@ -5,7 +5,7 @@ OI Robot::m_oi;
 
 BaseRoulante Robot::m_baseRoulante;
 Bras Robot::m_bras;
-Elevateur Robot::m_elevateur;
+Elevateur Robot::m_elevateur; 
 Pince Robot::m_pince;
 Pivot Robot::m_pivot;
 
