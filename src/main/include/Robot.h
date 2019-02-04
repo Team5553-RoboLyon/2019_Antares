@@ -18,7 +18,6 @@ class Robot : public frc::TimedRobot
   static OI m_oi;
 
   static BaseRoulante m_baseRoulante;
-  static Bras m_bras;
   static Elevateur m_elevateur;
   static Pince m_pince;
   static Pivot m_pivot;
