@@ -39,6 +39,12 @@ void BaseRoulante::Drive(double gauche, double droite)
 	m_baseDroite.Set(droite);
 }
 
+void BaseRoulante::Stop()
+{
+  m_baseGauche.StopMotor();
+	m_baseDroite.StopMotor();
+}
+
 void BaseRoulante::ActiverVitesse1()
 {
   m_ballshiffter.Set(frc::DoubleSolenoid::Value::kReverse);

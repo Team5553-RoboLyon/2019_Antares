@@ -39,6 +39,11 @@ class BaseRoulante : public frc::Subsystem
 	void Drive(double gauche, double droite);
 
   /**
+   * Set tous les moteurs de la base à zéro
+   */
+	void Stop();
+
+  /**
    * Active la première vitesse
    * Adapte la distance calculée par les encodeurs avec le nouveau rapport
    */
