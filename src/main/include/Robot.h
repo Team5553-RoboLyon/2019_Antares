@@ -7,7 +7,6 @@
 #include "OI.h"
 
 #include "subsystems/BaseRoulante.h"
-#include "subsystems/Bras.h"
 #include "subsystems/Elevateur.h"
 #include "subsystems/Pince.h"
 #include "subsystems/Pivot.h"
