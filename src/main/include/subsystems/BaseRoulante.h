@@ -7,16 +7,75 @@
 class BaseRoulante : public frc::Subsystem
 {
  private:
-  
+  frc::PWMVictorSPX m_baseDroite1{PWM_BASE_DROITE_1};
+	frc::PWMVictorSPX m_baseDroite2{PWM_BASE_DROITE_2};
+  frc::PWMVictorSPX m_baseDroite3{PWM_BASE_DROITE_3};
+	frc::SpeedControllerGroup m_baseDroite{m_baseDroite1, m_baseDroite2, m_baseDroite3};
+
+	frc::PWMVictorSPX m_baseGauche1{PWM_BASE_GAUCHE_1};
+	frc::PWMVictorSPX m_baseGauche2{PWM_BASE_GAUCHE_2};
+  frc::PWMVictorSPX m_baseGauche3{PWM_BASE_GAUCHE_3};
+	frc::SpeedControllerGroup m_baseGauche{m_baseGauche1, m_baseGauche2, m_baseGauche3};
+
+	frc::ADXRS450_Gyro m_gyro;
+	frc::Encoder m_encodeurDroit{DIO_ENCODEUR_DROIT_A, DIO_ENCODEUR_DROIT_B, true, frc::Encoder::k4X};
+	frc::Encoder m_encodeurGauche{DIO_ENCODEUR_GAUCHE_A, DIO_ENCODEUR_GAUCHE_B, false, frc::Encoder::k4X};
+
+	frc::DoubleSolenoid m_ballshiffter{PCM_BALLSHIFTER_A, PCM_BALLSHIFTER_B};
+
+	bool m_vitesse1;
+  const int m_distanceParTickVitesse1 = 1;
+  const int m_distanceParTickVitesse2 = 1;
+
  public:
   BaseRoulante();
   void InitDefaultCommand() override;
   void Periodic() override;
 
-  void Drive(double gauche, double droite);
-  void BaseRoulante::ChangerVitesse () ;
-  void BaseRoulante::ResetPID ();
-  void BaseRoulante::ActiverVitesse1 ();
-  void BaseRoulante::ActiverVitesse2 ();
-  void BaseRoulante::GetEncodeur ();
+  /**
+   * Set les moteurs de la base aux valeurs données
+   * Valeurs positives pour avancer
+   */
+	void Drive(double gauche, double droite);
+
+  /**
+   * Active la première vitesse
+   * Adapte la distance calculée par les encodeurs avec le nouveau rapport
+   */
+	void ActiverVitesse1();
+
+  /**
+   * Active la deuxième vitesse
+   * Adapte la distance calculée par les encodeurs avec le nouveau rapport
+   */
+	void ActiverVitesse2();
+
+  /**
+   * Met la vitesse différente de celle actuelle
+   * Adapte la distance calculée par les encodeurs avec le nouveau rapport
+   */
+	void ChangerVitesse();
+
+  /**
+   * Return la distance parcourue en m par la base droite depuis le dernier reset
+   * Valeur positive pour un déplacement en avant
+   */
+	double GetDistanceDroite();
+
+  /**
+   * Return la distance parcourue en m par la base gauche depuis le dernier reset
+   * Valeur positive pour un déplacement en avant
+   */
+  double GetDistanceGauche();
+
+  /**
+   * Return l'angle parcouru en degré depuis le dernier reset
+   * Valeur positive dans le sens des aiguilles d'une montre
+   */
+	double GetAngle();
+
+  /**
+   * Remet les valeurs des encodeurs et du gyro à zéro
+   */
+	void ResetCapteurs();
 };
