@@ -8,10 +8,8 @@
 #define PWM_BASE_GAUCHE_2 -1
 #define PWM_BASE_GAUCHE_3 -1
 
-#define PWM_ROUES -1
+#define PWM_ROUES_PINCE -1
 #define PWM_PIVOT -1
-
-#define PWM_TREUIL -1
 
 #define DIO_ENCODEUR_DROIT_A -1
 #define DIO_ENCODEUR_DROIT_B -1
@@ -28,11 +26,8 @@
 #define PCM_VERIN_PINCE_A -1
 #define PCM_VERIN_PINCE_B -1
 
-#define PCM_VERIN_GRAPIN_BAS_A -1
-#define PCM_VERIN_GRAPIN_BAS_B -1
-
-#define PCM_VERIN_GRAPIN_HAUT_A -1
-#define PCM_VERIN_GRAPIN_HAUT_B -1
+#define PCM_PISTONS_PINCE_A -1
+#define PCM_PISTONS_PINCE_B -1
 
 
 /* TABLEAU DE CABLAGE du ROBORIO
