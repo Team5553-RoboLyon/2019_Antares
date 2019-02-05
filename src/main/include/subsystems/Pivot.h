@@ -1,8 +1,8 @@
 #pragma once
 
 // Pour avoir M_PI
-#include <math.h>
 #define _USE_MATH_DEFINES
+#include <math.h>
 
 #include <frc/WPILib.h>
 #include <ctre/Phoenix.h>
@@ -25,4 +25,10 @@ class Pivot : public frc::PIDSubsystem
   double ReturnPIDInput() override;
   void UsePIDOutput(double output) override;
   void InitDefaultCommand() override;
+
+	const double MILIEU = 0.0;
+	const double CARGO_AVANT = 90.0;
+	const double CARGO_ARRIERE = -90.0;
+	const double FUSEE_AVANT = 45.0;
+  const double FUSEE_ARRIERE = -45.0;
 };

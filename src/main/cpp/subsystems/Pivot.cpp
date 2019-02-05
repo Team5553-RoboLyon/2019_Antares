@@ -14,7 +14,7 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 1.0, 0.0, 0.0)
   SetAbsoluteTolerance(5.0);
 
   // Set where the PID controller should move the system to and enable the PID controller
-  SetSetpoint(0);
+  SetSetpoint(0.0);
   Enable();
 
   // Permet d'afficher des infos sur le pivot dans le shuffleboard
