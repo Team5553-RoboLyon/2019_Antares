@@ -8,7 +8,7 @@ class Pince : public frc::Subsystem
 {
  private:
   frc::PWMVictorSPX m_roues{PWM_ROUES_PINCE};
-	frc::DoubleSolenoid m_verin{PCM_VERIN_PINCE_A, PCM_VERIN_PINCE_B};
+  frc::DoubleSolenoid m_verin{PCM_VERIN_PINCE_A, PCM_VERIN_PINCE_B};
   frc::DoubleSolenoid m_pistons{PCM_PISTONS_PINCE_A, PCM_PISTONS_PINCE_B};
   frc::DoubleSolenoid m_hatchPince{PCM_HATCH_PINCE_A, PCM_HATCH_PINCE_B};
 

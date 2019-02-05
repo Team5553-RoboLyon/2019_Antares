@@ -26,9 +26,9 @@ class Pivot : public frc::PIDSubsystem
   void UsePIDOutput(double output) override;
   void InitDefaultCommand() override;
 
-	const double MILIEU = 0.0;
-	const double CARGO_AVANT = 90.0;
-	const double CARGO_ARRIERE = -90.0;
-	const double FUSEE_AVANT = 45.0;
+  const double MILIEU = 0.0;
+  const double CARGO_AVANT = 90.0;
+  const double CARGO_ARRIERE = -90.0;
+  const double FUSEE_AVANT = 45.0;
   const double FUSEE_ARRIERE = -45.0;
 };
