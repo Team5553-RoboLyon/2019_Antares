@@ -29,6 +29,9 @@
 #define PCM_PISTONS_PINCE_A -1
 #define PCM_PISTONS_PINCE_B -1
 
+#define PCM_HATCH_PINCE_A -1
+#define PCM_HATCH_PINCE_B -1
+
 
 /* TABLEAU DE CABLAGE du ROBORIO
  *

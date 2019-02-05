@@ -8,6 +8,7 @@ Pince::Pince() : Subsystem("Pince")
   AddChild("Roues", m_roues);
   AddChild("Verin", m_verin);
   AddChild("Pistons", m_pistons);
+  AddChild("Pince à hatchs", m_hatchPince);
 }
 
 void Pince::InitDefaultCommand()
@@ -48,12 +49,12 @@ void Pince::EjecterCargo()
 
 void Pince::AttraperHatch()
 {
-  // Je sais pas comment on fais
+  m_hatchPince.Set(frc::DoubleSolenoid::Value::kReverse);
 }
 
 void Pince::RelacherHatch()
 {
-  // Je sais pas comment on fais
+  m_hatchPince.Set(frc::DoubleSolenoid::Value::kForward);
 }
 
 void Pince::RentrerPistons()
