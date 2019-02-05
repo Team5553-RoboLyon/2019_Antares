@@ -11,10 +11,17 @@ Pivot Robot::m_pivot;
 
 void Robot::RobotInit()
 {
-  frc::SmartDashboard::PutData(&Robot::m_baseRoulante);
-  frc::SmartDashboard::PutData(&Robot::m_elevateur);
-  frc::SmartDashboard::PutData(&Robot::m_pince);
-  frc::SmartDashboard::PutData(&Robot::m_pivot);
+  // Affiche les commandes en cours d'éxécution de chaque subsystem
+  frc::SmartDashboard::PutData(&m_baseRoulante);
+  frc::SmartDashboard::PutData(&m_elevateur);
+  frc::SmartDashboard::PutData(&m_pince);
+  frc::SmartDashboard::PutData(&m_pivot);
+
+  // Initialisation de la pneumatique
+  m_baseRoulante.ActiverVitesse1();
+  m_pince.Ouvrir();
+  m_pince.RentrerPistons();
+  m_pince.AttraperHatch();
 }
 
 void Robot::RobotPeriodic() {}
