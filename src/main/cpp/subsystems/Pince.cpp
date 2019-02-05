@@ -4,7 +4,7 @@ Pince::Pince() : Subsystem("Pince")
 {
   m_positionCargo = false;
 
-  // Permet d'afficher des infos sur la base dans le shuffleboard
+  // Permet d'afficher des infos sur la pince dans le shuffleboard
   AddChild("Roues", m_roues);
   AddChild("Verin", m_verin);
   AddChild("Pistons", m_pistons);

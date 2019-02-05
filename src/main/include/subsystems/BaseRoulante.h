@@ -24,8 +24,8 @@ class BaseRoulante : public frc::Subsystem
 	frc::DoubleSolenoid m_ballshiffter{PCM_BALLSHIFTER_A, PCM_BALLSHIFTER_B};
 
 	bool m_vitesse1;
-  const int m_distanceParTickVitesse1 = 1;
-  const int m_distanceParTickVitesse2 = 1;
+  const double m_distanceParTickVitesse1 = 1.0;
+  const double m_distanceParTickVitesse2 = 1.0;
 
  public:
   BaseRoulante();
