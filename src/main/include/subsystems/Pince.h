@@ -12,7 +12,7 @@ class Pince : public frc::Subsystem
   frc::DoubleSolenoid m_pistons{PCM_PISTONS_PINCE_A, PCM_PISTONS_PINCE_B};
   frc::DoubleSolenoid m_hatchPince{PCM_HATCH_PINCE_A, PCM_HATCH_PINCE_B};
 
-  bool m_positionCargo;
+  bool m_positionHatch;
 
  public:
   Pince();
@@ -33,6 +33,11 @@ class Pince : public frc::Subsystem
    * Change le type d'objet à attraper
    */
   void ChangerPosition();
+
+  /**
+   * Return true si pince en position hatch
+   */
+  bool IsOuverte();
 
   /**
    * Aspire le cargo en faisant tourner les roues
