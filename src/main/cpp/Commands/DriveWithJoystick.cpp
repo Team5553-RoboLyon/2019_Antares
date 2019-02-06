@@ -1,29 +1,44 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 #include "Commands/DriveWithJoystick.h"
 
-DriveWithJoystick::DriveWithJoystick() {
-  // Use Requires() here to declare subsystem dependencies
-  // eg. Requires(Robot::chassis.get());
+DriveWithJoystick::DriveWithJoystick()
+{
+  Requires(&Robot::m_baseRoulante);
 }
 
-// Called just before this Command runs the first time
 void DriveWithJoystick::Initialize() {}
 
-// Called repeatedly when this Command is scheduled to run
-void DriveWithJoystick::Execute() {}
+void DriveWithJoystick::Execute()
+{
+  // On récupère les valeurs du joystick
+  double y = Robot::m_oi.GetJoystick().GetY();
+  double z = Robot::m_oi.GetJoystick().GetZ();
 
-// Make this return true when this Command no longer needs to run execute()
-bool DriveWithJoystick::IsFinished() { return false; }
+  // Si les valeurs lues sont trop petites, on les considère comme nulles
+	if (abs(y) < 0.2)
+		y = 0;
+  
+	if (abs(z) < 0.2)
+		z = 0;
 
-// Called once after isFinished returns true
-void DriveWithJoystick::End() {}
+  //La "formule" pour calculer la vitesse de chaque moteur
+	double vitesseGauche = y - 0.5 * z;
+	double vitesseDroite = y + 0.5 * z;
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void DriveWithJoystick::Interrupted() {}
+	//On utilise la fonction membre du subsystem BaseRoulante
+	Robot::m_baseRoulante.Drive(vitesseGauche, vitesseDroite);
+}
+
+bool DriveWithJoystick::IsFinished()
+{
+  return false;
+}
+
+void DriveWithJoystick::End()
+{
+  Robot::m_baseRoulante.Stop();
+}
+
+void DriveWithJoystick::Interrupted()
+{
+  End();
+}

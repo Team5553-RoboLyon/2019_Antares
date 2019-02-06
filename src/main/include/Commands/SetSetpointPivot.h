@@ -1,17 +1,19 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 #pragma once
 
 #include <frc/commands/Command.h>
+#include "Robot.h"
 
-class SetSetpointPivot : public frc::Command {
+/**
+ * Change la position du pivot 
+ * Fin quand le pivot a atteint le setpoint
+ */
+class SetSetpointPivot : public frc::Command
+{
+ private:
+  double m_setpoint;
+
  public:
-  SetSetpointPivot();
+  SetSetpointPivot(double setpoint);
   void Initialize() override;
   void Execute() override;
   bool IsFinished() override;

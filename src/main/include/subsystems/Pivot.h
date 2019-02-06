@@ -18,7 +18,7 @@ class Pivot : public frc::PIDSubsystem
   const double m_coefGravite = 1.0;
 
   // Petite fonction pour convertir des degrés en radians
-  double Deg2rad(double angle){return (angle*M_PI)/180.0;};
+  double Deg2rad(double angle){ return (angle*M_PI)/180.0; };
 
  public:
   Pivot();

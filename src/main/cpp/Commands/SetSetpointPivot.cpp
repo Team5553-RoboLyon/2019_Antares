@@ -1,29 +1,24 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 #include "Commands/SetSetpointPivot.h"
 
-SetSetpointPivot::SetSetpointPivot() {
-  // Use Requires() here to declare subsystem dependencies
-  // eg. Requires(Robot::chassis.get());
+SetSetpointPivot::SetSetpointPivot(double setpoint)
+{
+  Requires(&Robot::m_pivot);
+  m_setpoint = setpoint;
 }
 
-// Called just before this Command runs the first time
-void SetSetpointPivot::Initialize() {}
+void SetSetpointPivot::Initialize()
+{
+  Robot::m_pivot.SetSetpoint(m_setpoint);
+}
 
-// Called repeatedly when this Command is scheduled to run
+// Rien à faire le pivot fait tout tout seul
 void SetSetpointPivot::Execute() {}
 
-// Make this return true when this Command no longer needs to run execute()
-bool SetSetpointPivot::IsFinished() { return false; }
+bool SetSetpointPivot::IsFinished()
+{
+  return Robot::m_pivot.OnTarget();
+}
 
-// Called once after isFinished returns true
 void SetSetpointPivot::End() {}
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
 void SetSetpointPivot::Interrupted() {}
