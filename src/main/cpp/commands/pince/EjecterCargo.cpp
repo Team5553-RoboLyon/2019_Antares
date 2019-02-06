@@ -1,4 +1,5 @@
-#include "commands/EjecterCargo.h"
+#include "commands/pince/EjecterCargo.h"
+#include "Robot.h"
 
 EjecterCargo::EjecterCargo() : TimedCommand(1.0)
 {

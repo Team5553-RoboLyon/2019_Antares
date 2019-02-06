@@ -1,4 +1,5 @@
 #include "subsystems/BaseRoulante.h"
+#include "commands/baseRoulante/DriveWithJoystick.h"
 
 BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
 {
@@ -24,8 +25,7 @@ BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
 
 void BaseRoulante::InitDefaultCommand()
 {
-  // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
+  SetDefaultCommand(new DriveWithJoystick());
 }
 
 void BaseRoulante::Periodic()

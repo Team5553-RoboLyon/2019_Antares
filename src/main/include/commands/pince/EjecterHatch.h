@@ -1,7 +1,6 @@
 #pragma once
 
 #include <frc/commands/TimedCommand.h>
-#include "Robot.h"
 
 /**
  * Ejecte un hatch en le relachant et en sortant les pistons

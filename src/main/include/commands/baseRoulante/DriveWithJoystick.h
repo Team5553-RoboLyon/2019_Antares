@@ -1,7 +1,6 @@
 #pragma once
 
 #include <frc/commands/Command.h>
-#include "Robot.h"
 
 /**
  * Conduire la Base Roulante avec le joystick

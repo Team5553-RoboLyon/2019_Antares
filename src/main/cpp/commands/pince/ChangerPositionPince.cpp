@@ -1,4 +1,5 @@
-#include "commands/ChangerPositionPince.h"
+#include "commands/pince/ChangerPositionPince.h"
+#include "Robot.h"
 
 ChangerPositionPince::ChangerPositionPince()
 {

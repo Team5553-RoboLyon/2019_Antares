@@ -1,7 +1,6 @@
 #pragma once
 
 #include <frc/commands/InstantCommand.h>
-#include "Robot.h"
 
 /**
  * Change la position du ballshifter

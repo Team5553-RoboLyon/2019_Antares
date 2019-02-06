@@ -1,4 +1,5 @@
-#include "commands/AttraperHatch.h"
+#include "commands/pince/AttraperHatch.h"
+#include "Robot.h"
 
 AttraperHatch::AttraperHatch()
 {

@@ -1,4 +1,5 @@
-#include "commands/ChangerVitesse.h"
+#include "commands/baseRoulante/ChangerVitesse.h"
+#include "Robot.h"
 
 ChangerVitesse::ChangerVitesse()
 {

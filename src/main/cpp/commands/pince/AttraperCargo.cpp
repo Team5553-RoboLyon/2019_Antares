@@ -1,4 +1,5 @@
-#include "commands/AttraperCargo.h"
+#include "commands/pince/AttraperCargo.h"
+#include "Robot.h"
 
 AttraperCargo::AttraperCargo() : TimedCommand(1.0)
 {

@@ -1,4 +1,5 @@
-#include "Commands/SetSetpointPivot.h"
+#include "commands/pivot/SetSetpointPivot.h"
+#include "Robot.h"
 
 SetSetpointPivot::SetSetpointPivot(double setpoint)
 {

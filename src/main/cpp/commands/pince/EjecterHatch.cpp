@@ -1,4 +1,5 @@
-#include "commands/EjecterHatch.h"
+#include "commands/pince/EjecterHatch.h"
+#include "Robot.h"
 
 EjecterHatch::EjecterHatch() : TimedCommand(0.5)
 {

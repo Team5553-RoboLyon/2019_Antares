@@ -1,7 +1,6 @@
 #pragma once
 
 #include <frc/commands/TimedCommand.h>
-#include "Robot.h"
 
 /**
  * Ejecte le cargo en faisant tourner les roues de la pince
