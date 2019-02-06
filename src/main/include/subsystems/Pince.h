@@ -49,6 +49,11 @@ class Pince : public frc::Subsystem
    */
   void EjecterCargo();
 
+   /**
+   * Stoppe les roues de la pince à cargo
+   */
+  void StopCargo();
+
   /**
    * Attrape un hatch panel en ouvrant la petite pince
    */

@@ -52,6 +52,11 @@ void Pince::EjecterCargo()
   m_roues.Set(-0.5);
 }
 
+void Pince::StopCargo()
+{
+  m_roues.StopMotor();
+}
+
 void Pince::AttraperHatch()
 {
   m_hatchPince.Set(frc::DoubleSolenoid::Value::kReverse);
