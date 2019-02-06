@@ -2,7 +2,7 @@
 
 Pince::Pince() : Subsystem("Pince")
 {
-  m_positionCargo = false;
+  m_positionHatch = true;
 
   // Permet d'afficher des infos sur la pince dans le shuffleboard
   AddChild("Roues", m_roues);
@@ -20,21 +20,26 @@ void Pince::InitDefaultCommand()
 void Pince::Ouvrir()
 {
   m_verin.Set(frc::DoubleSolenoid::Value::kReverse);
-  m_positionCargo = false;
+  m_positionHatch = true;
 }
 
 void Pince::Fermer()
 {
   m_verin.Set(frc::DoubleSolenoid::Value::kForward);
-  m_positionCargo = true;
+  m_positionHatch = false;
 }
 
 void Pince::ChangerPosition()
 {
-  if(m_positionCargo)
-    Ouvrir();
-  else
+  if(m_positionHatch)
     Fermer();
+  else
+    Ouvrir();
+}
+
+bool Pince::IsOuverte()
+{
+  return m_positionHatch;
 }
 
 void Pince::AttraperCargo()
