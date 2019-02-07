@@ -2,7 +2,6 @@
 
 #include <frc/WPILib.h>
 #include <frc/smartdashboard/Smartdashboard.h>
-#include <ctre/Phoenix.h>
 
 #include "OI.h"
 

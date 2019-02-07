@@ -5,17 +5,21 @@
 #include <math.h>
 
 #include <frc/WPILib.h>
-#include <ctre/Phoenix.h>
+#include <rev/CANSparkMax.h>
+#include <rev/CANEncoder.h>
 #include "Cablage.h"
 
 class Pivot : public frc::PIDSubsystem
 {
  private:
-  frc::PWMVictorSPX m_moteur{PWM_PIVOT};
-  frc::Encoder m_encodeur{DIO_ENCODEUR_PIVOT_A, DIO_ENCODEUR_PIVOT_B, false, frc::Encoder::k4X};
+  rev::CANSparkMax m_moteur{CAN_PIVOT, rev::CANSparkMax::MotorType::kBrushed};
+  rev::CANEncoder m_encodeur{m_moteur};
 
   const double m_angleParTick = 1.0;
   const double m_coefGravite = 1.0;
+
+  // Petite fonction pour recuperer l'angle du pivot
+  double GetAngle();
 
   // Petite fonction pour convertir des degrés en radians
   double Deg2rad(double angle){ return (angle*M_PI)/180.0; };

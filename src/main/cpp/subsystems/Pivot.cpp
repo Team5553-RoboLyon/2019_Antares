@@ -2,10 +2,7 @@
 
 Pivot::Pivot() : PIDSubsystem("Pivot", 1.0, 0.0, 0.0)
 {
-   GetPIDController()->SetName("Pivot", "PIDSubsystem Controller");
-
-  // Ratio pour convertir les ticks de l'encodeur en degrés
-  m_encodeur.SetDistancePerPulse(m_angleParTick);
+  GetPIDController()->SetName("Pivot", "PIDSubsystem Controller");
 
   // Interdit les setpoints en dehors de [-90°; 90°]
   SetInputRange(-90.0, 90.0);
@@ -16,22 +13,23 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 1.0, 0.0, 0.0)
   // Set where the PID controller should move the system to and enable the PID controller
   SetSetpoint(0.0);
   Enable();
+}
 
-  // Permet d'afficher des infos sur le pivot dans le shuffleboard
-  AddChild("Moteur", m_moteur);
-  AddChild("Encodeur", m_encodeur);
+double Pivot::GetAngle()
+{
+  // Ratio pour convertir les ticks de l'encodeur en degrés
+  return m_encodeur.GetPosition() * m_angleParTick;
 }
 
 double Pivot::ReturnPIDInput()
 {
-  // Return your input value for the PID loop
-  return m_encodeur.GetDistance();
+  return GetAngle();
 }
 
 void Pivot::UsePIDOutput(double output)
 {
   // Conversion de l'angle du pivot en radians
-  double angleEnRadians = Deg2rad(m_encodeur.GetDistance());
+  double angleEnRadians = Deg2rad(GetAngle());
 
   /**
   * Calcul de la force de gravité sur le bras du pivot
