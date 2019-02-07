@@ -16,7 +16,15 @@ BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
 
   // Permet d'afficher des infos sur la base dans le shuffleboard
   AddChild("Base Droite", m_baseDroite);
+  AddChild("Base Droite 1", m_baseDroite1);
+  AddChild("Base Droite 2", m_baseDroite2);
+  AddChild("Base Droite 3", m_baseDroite3);
+
   AddChild("Base Gauche", m_baseGauche);
+  AddChild("Base Gauche 1", m_baseGauche1);
+  AddChild("Base Gauche 2", m_baseGauche2);
+  AddChild("Base Gauche 3", m_baseGauche3);
+
   AddChild("Gyro", m_gyro);
   AddChild("Encodeur Droit", m_encodeurDroit);
   AddChild("Encodeur Gauche", m_encodeurGauche);
