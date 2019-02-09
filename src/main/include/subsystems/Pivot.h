@@ -12,7 +12,7 @@
 class Pivot : public frc::PIDSubsystem
 {
  private:
-  rev::CANSparkMax m_moteur{CAN_PIVOT, rev::CANSparkMax::MotorType::kBrushed};
+  rev::CANSparkMax m_moteur{CAN_PIVOT, rev::CANSparkMax::MotorType::kBrushless};
   rev::CANEncoder m_encodeur{m_moteur};
 
   const double m_angleParTick = 1.0;
