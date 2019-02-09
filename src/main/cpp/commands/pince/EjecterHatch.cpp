@@ -9,10 +9,14 @@ EjecterHatch::EjecterHatch() : TimedCommand(0.5)
 void EjecterHatch::Initialize()
 {
   Robot::m_pince.RelacherHatch();
-  Robot::m_pince.SortirPistons();
 }
 
-void EjecterHatch::Execute() {}
+void EjecterHatch::Execute()
+{
+  //Aprés 0.1 seconde on sort les pistons
+  if(TimeSinceInitialized() > 0.1)
+    Robot::m_pince.SortirPistons();
+}
 
 void EjecterHatch::End()
 {
