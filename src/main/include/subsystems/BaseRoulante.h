@@ -26,11 +26,12 @@ class BaseRoulante : public frc::Subsystem
   bool m_vitesse1;
   const double m_distanceParTickVitesse1 = 1.0;
   const double m_distanceParTickVitesse2 = 1.0;
+  const double m_maxAcceleration = 0.03;
+  double m_vitesseDroitePrecedente, m_vitesseGauchePrecedente;
 
  public:
   BaseRoulante();
   void InitDefaultCommand() override;
-  void Periodic() override;
 
   /**
    * Set les moteurs de la base aux valeurs données

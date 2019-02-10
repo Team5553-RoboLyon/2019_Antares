@@ -4,6 +4,8 @@
 BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
 {
   m_vitesse1 = true;
+  m_vitesseDroitePrecedente = 0.0;
+  m_vitesseGauchePrecedente = 0.0;
 
   m_baseGauche.SetInverted(false);
   m_baseDroite.SetInverted(true);
@@ -36,15 +38,19 @@ void BaseRoulante::InitDefaultCommand()
   SetDefaultCommand(new DriveWithJoystick());
 }
 
-void BaseRoulante::Periodic()
-{
-
-} 
-
 void BaseRoulante::Drive(double gauche, double droite)
 {
+  if(gauche > m_vitesseGauchePrecedente + m_maxAcceleration)
+    gauche = m_vitesseGauchePrecedente + m_maxAcceleration;
+  
+  if(droite > m_vitesseDroitePrecedente + m_maxAcceleration)
+    droite = m_vitesseDroitePrecedente + m_maxAcceleration;
+  
   m_baseGauche.Set(gauche);
 	m_baseDroite.Set(droite);
+
+  m_vitesseDroitePrecedente = droite;
+  m_vitesseGauchePrecedente = gauche;
 }
 
 void BaseRoulante::Stop()
