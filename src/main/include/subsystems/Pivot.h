@@ -18,17 +18,17 @@ class Pivot : public frc::PIDSubsystem
   const double m_angleParTick = 1.0;
   const double m_coefGravite = 1.0;
 
-  // Petite fonction pour recuperer l'angle du pivot
-  double GetAngle();
-
-  // Petite fonction pour convertir des degrés en radians
-  double Deg2rad(double angle){ return (angle*M_PI)/180.0; };
-
  public:
   Pivot();
   double ReturnPIDInput() override;
   void UsePIDOutput(double output) override;
   void InitDefaultCommand() override;
+
+  // Petite fonction pour convertir des degrés en radians
+  double Deg2rad(double angle){ return (angle*M_PI)/180.0; };
+  
+  // Petite fonction pour recuperer l'angle du pivot
+  double GetAngle();
 
   const double MILIEU = 0.0;
   const double CARGO_AVANT = 90.0;
