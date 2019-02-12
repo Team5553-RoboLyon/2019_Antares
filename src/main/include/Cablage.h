@@ -13,7 +13,7 @@
 #define PWM_BASE_GAUCHE_3 6
 
 // CAN MOTORS
-#define CAN_PIVOT 7
+#define CAN_PIVOT 0
 
 // DIO ENCODEURS
 #define DIO_ENCODEUR_GAUCHE_A 0

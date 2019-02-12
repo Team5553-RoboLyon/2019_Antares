@@ -1,5 +1,6 @@
 #include "commands/baseRoulante/DriveWithJoystick.h"
 #include "Robot.h"
+#include "math.h"
 
 DriveWithJoystick::DriveWithJoystick()
 {

@@ -49,12 +49,12 @@ bool Pince::IsOuverte()
 
 void Pince::AttraperCargo()
 {
-  m_roues.Set(0.5);
+  m_roues.Set(0.4);
 }
 
 void Pince::EjecterCargo()
 {
-  m_roues.Set(-0.5);
+  m_roues.Set(-1.0 );
 }
 
 void Pince::StopCargo()

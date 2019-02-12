@@ -15,8 +15,8 @@ class Pivot : public frc::PIDSubsystem
   rev::CANSparkMax m_moteur{CAN_PIVOT, rev::CANSparkMax::MotorType::kBrushless};
   rev::CANEncoder m_encodeur{m_moteur};
 
-  const double m_angleParTick = 1.0;
-  const double m_coefGravite = 1.0;
+  const double m_angleParTick = 2.0;
+  const double m_coefGravite = 0.04;
 
  public:
   Pivot();
