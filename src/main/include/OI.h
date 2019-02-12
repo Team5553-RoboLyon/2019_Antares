@@ -16,6 +16,8 @@ class OI
   frc::JoystickButton m_button3{&m_joystick, 3};
   frc::JoystickButton m_button4{&m_joystick, 4};
   frc::JoystickButton m_button5{&m_joystick, 5};
+  frc::JoystickButton m_button6{&m_joystick, 6};
+  frc::JoystickButton m_button7{&m_joystick, 7};
   frc::JoystickButton m_button8{&m_joystick, 8};
   frc::JoystickButton m_button9{&m_joystick, 9};
   frc::JoystickButton m_button10{&m_joystick, 10};

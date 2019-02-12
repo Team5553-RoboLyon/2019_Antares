@@ -4,8 +4,13 @@ Pince::Pince() : Subsystem("Pince")
 {
   m_positionHatch = true;
 
+  m_roue1.SetInverted(false);
+  m_roue2.SetInverted(true);
+
   // Permet d'afficher des infos sur la pince dans le shuffleboard
   AddChild("Roues", m_roues);
+  AddChild("Roues", m_roue1);
+  AddChild("Roues", m_roue2);
   AddChild("Verin", m_verin);
   AddChild("Pistons", m_pistons);
   AddChild("Pince à hatchs", m_hatchPince);
@@ -19,13 +24,13 @@ void Pince::InitDefaultCommand()
 
 void Pince::Ouvrir()
 {
-  m_verin.Set(frc::DoubleSolenoid::Value::kReverse);
+  m_verin.Set(frc::DoubleSolenoid::Value::kForward);
   m_positionHatch = true;
 }
 
 void Pince::Fermer()
 {
-  m_verin.Set(frc::DoubleSolenoid::Value::kForward);
+  m_verin.Set(frc::DoubleSolenoid::Value::kReverse);
   m_positionHatch = false;
 }
 
@@ -59,20 +64,20 @@ void Pince::StopCargo()
 
 void Pince::AttraperHatch()
 {
-  m_hatchPince.Set(frc::DoubleSolenoid::Value::kReverse);
+  m_hatchPince.Set(frc::DoubleSolenoid::Value::kForward);
 }
 
 void Pince::RelacherHatch()
 {
-  m_hatchPince.Set(frc::DoubleSolenoid::Value::kForward);
+  m_hatchPince.Set(frc::DoubleSolenoid::Value::kReverse);
 }
 
 void Pince::RentrerPistons()
 {
-  m_pistons.Set(frc::DoubleSolenoid::Value::kReverse);
+  m_pistons.Set(frc::DoubleSolenoid::Value::kForward);
 }
 
 void Pince::SortirPistons()
 {
-  m_pistons.Set(frc::DoubleSolenoid::Value::kForward);
+  m_pistons.Set(frc::DoubleSolenoid::Value::kReverse);
 }
