@@ -15,8 +15,10 @@ class Pivot : public frc::PIDSubsystem
   rev::CANSparkMax m_moteur{CAN_PIVOT, rev::CANSparkMax::MotorType::kBrushless};
   rev::CANEncoder m_encodeur{m_moteur};
 
+  double m_vitessePrecedente;
   const double m_angleParTick = 2.0;
   const double m_coefGravite = 0.04;
+  const double m_maxAcceleration = 0.1;
 
  public:
   Pivot();
@@ -24,6 +26,9 @@ class Pivot : public frc::PIDSubsystem
   double ReturnPIDInput() override;
   void UsePIDOutput(double output) override;
   void InitDefaultCommand() override;
+
+  //Petite fonction pour gérer l'acceleration du pivot
+  double Rampe(double vitesse);
 
   // Petite fonction pour convertir des degrés en radians
   double Deg2rad(double angle){ return (angle*M_PI)/180.0; };

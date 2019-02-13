@@ -1,4 +1,5 @@
 #include "subsystems/Pince.h"
+#include "Robot.h"
 
 Pince::Pince() : Subsystem("Pince")
 {
@@ -26,12 +27,18 @@ void Pince::Ouvrir()
 {
   m_verin.Set(frc::DoubleSolenoid::Value::kForward);
   m_positionHatch = true;
+
+  // Quand la pince est ouverte on restreint les angles possibles
+  Robot::m_pivot.SetInputRange(-90.0, 90.0);
 }
 
 void Pince::Fermer()
 {
   m_verin.Set(frc::DoubleSolenoid::Value::kReverse);
   m_positionHatch = false;
+
+  // Quand la pince est fermé on peut aller de -105° à 105°
+  Robot::m_pivot.SetInputRange(-105.0, 105.0);
 }
 
 void Pince::ChangerPosition()

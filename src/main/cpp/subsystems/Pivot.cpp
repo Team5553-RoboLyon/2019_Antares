@@ -1,8 +1,10 @@
 #include "subsystems/Pivot.h"
 #include <frc/smartdashboard/SmartDashboard.h>
 
-Pivot::Pivot() : PIDSubsystem("Pivot", 1.0, 0.0, 0.0)
+Pivot::Pivot() : PIDSubsystem("Pivot", 0.015, 0.0, 0.0)
 {
+  m_vitessePrecedente = 0.0;
+
   GetPIDController()->SetName("Pivot", "PIDSubsystem Controller");
 
   // Interdit les setpoints en dehors de [-90°; 90°]
@@ -26,6 +28,22 @@ double Pivot::GetAngle()
 {
   // Ratio pour convertir les ticks de l'encodeur en degrés
   return m_encodeur.GetPosition() * m_angleParTick;
+}
+
+double Pivot::Rampe(double vitesse)
+{
+  if(vitesse > 0 && vitesse > m_vitessePrecedente + m_maxAcceleration)
+  {
+    vitesse = m_vitessePrecedente + m_maxAcceleration;
+  }
+  else if(vitesse < 0 && vitesse < m_vitessePrecedente - m_maxAcceleration)
+  {
+    vitesse = m_vitessePrecedente - m_maxAcceleration;
+  }
+
+  m_vitessePrecedente = vitesse;
+
+  return vitesse;  
 }
 
 double Pivot::ReturnPIDInput()
@@ -61,8 +79,11 @@ void Pivot::UsePIDOutput(double output)
   */
   double gravite = m_coefGravite * -sin(angleEnRadians);
 
+  // On additionne les deux termes et on réduit l'accéleration
+  double vitesse = Rampe(output + gravite);
+
   // On ajoute le terme au PID pour contrer la gravité
-  m_moteur.Set(output + gravite);
+  m_moteur.Set(vitesse);
 }
 
 void Pivot::InitDefaultCommand()
