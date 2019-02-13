@@ -18,8 +18,8 @@ class BaseRoulante : public frc::Subsystem
   frc::SpeedControllerGroup m_baseGauche{m_baseGauche1, m_baseGauche2, m_baseGauche3};
 
   frc::ADXRS450_Gyro m_gyro;
-  frc::Encoder m_encodeurDroit{DIO_ENCODEUR_DROIT_A, DIO_ENCODEUR_DROIT_B, true, frc::Encoder::k4X};
-  frc::Encoder m_encodeurGauche{DIO_ENCODEUR_GAUCHE_A, DIO_ENCODEUR_GAUCHE_B, false, frc::Encoder::k4X};
+  frc::Encoder m_encodeurDroit{DIO_ENCODEUR_DROIT_A, DIO_ENCODEUR_DROIT_B};
+  frc::Encoder m_encodeurGauche{DIO_ENCODEUR_GAUCHE_A, DIO_ENCODEUR_GAUCHE_B};
 
   frc::DoubleSolenoid m_ballshiffter{PCM_BALLSHIFTER_A, PCM_BALLSHIFTER_B};
 
@@ -31,6 +31,7 @@ class BaseRoulante : public frc::Subsystem
 
  public:
   BaseRoulante();
+  void Periodic() override;
   void InitDefaultCommand() override;
 
   /**

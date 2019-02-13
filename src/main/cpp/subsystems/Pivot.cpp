@@ -1,4 +1,5 @@
 #include "subsystems/Pivot.h"
+#include <frc/smartdashboard/SmartDashboard.h>
 
 Pivot::Pivot() : PIDSubsystem("Pivot", 1.0, 0.0, 0.0)
 {
@@ -13,6 +14,12 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 1.0, 0.0, 0.0)
   // Set where the PID controller should move the system to and enable the PID controller
   SetSetpoint(0.0);
   Enable();
+}
+
+void Pivot::Periodic()
+{
+  frc::SmartDashboard::PutNumber("Angle Pivot", GetAngle());
+  frc::SmartDashboard::PutNumber("Moteur Pivot", m_moteur.Get());
 }
 
 double Pivot::GetAngle()
@@ -35,7 +42,7 @@ void Pivot::UsePIDOutput(double output)
   * Calcul de la force de gravité sur le bras du pivot
   * Elle est proportionelle à "l'abscisse" du bras
   * 
-  * %%% -> sin (pi/2) = 1
+  * %%% -> sin (90°) = 1
   * |    %%%
   * |       %%
   * |         %%
@@ -47,12 +54,12 @@ void Pivot::UsePIDOutput(double output)
   * |         %%
   * |       %%
   * |    %%%
-  * %%% -> sin (-pi/2) = -1
+  * %%% -> sin (-90°) = -1
   * 
   * Quand on renverse le cercle trigonométrique,
   * on retrouve bien la configuration du pivot
   */
-  double gravite = m_coefGravite * sin(angleEnRadians);
+  double gravite = m_coefGravite * -sin(angleEnRadians);
 
   // On ajoute le terme au PID pour contrer la gravité
   m_moteur.Set(output + gravite);

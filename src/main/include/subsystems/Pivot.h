@@ -20,6 +20,7 @@ class Pivot : public frc::PIDSubsystem
 
  public:
   Pivot();
+  void Periodic() override;
   double ReturnPIDInput() override;
   void UsePIDOutput(double output) override;
   void InitDefaultCommand() override;

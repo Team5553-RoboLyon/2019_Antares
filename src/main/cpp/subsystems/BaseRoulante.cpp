@@ -1,5 +1,6 @@
 #include "subsystems/BaseRoulante.h"
 #include "commands/baseRoulante/DriveWithJoystick.h"
+#include <frc/smartdashboard/SmartDashboard.h>
 
 BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
 {
@@ -31,6 +32,11 @@ BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
   AddChild("Encodeur Droit", m_encodeurDroit);
   AddChild("Encodeur Gauche", m_encodeurGauche);
   AddChild("Ballshiffter", m_ballshiffter);
+}
+
+void BaseRoulante::Periodic()
+{
+  frc::SmartDashboard::PutBoolean("Vitessse 1 active", m_vitesse1);
 }
 
 void BaseRoulante::InitDefaultCommand()
