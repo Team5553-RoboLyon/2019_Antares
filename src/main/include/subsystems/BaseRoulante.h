@@ -1,7 +1,6 @@
 #pragma once
 
 #include <frc/WPILib.h>
-#include <ctre/Phoenix.h>
 #include "Cablage.h"
 
 class BaseRoulante : public frc::Subsystem
@@ -29,13 +28,17 @@ class BaseRoulante : public frc::Subsystem
   const double m_maxAcceleration = 0.03;
   double m_vitesseDroitePrecedente, m_vitesseGauchePrecedente;
 
-  //Petite fonction pour gérer l'acceleration de la base
-  double Rampe(double vitessePrecedente, double vitesse);
-
  public:
   BaseRoulante();
   void Periodic() override;
   void InitDefaultCommand() override;
+
+  /**
+   * Gère l'accelération de la base
+   * Recupere la puissance d'un moteur et celle qu'on veut lui mettre
+   * Return la puissance avec une accéleration limitée
+   */
+  double Rampe(double vitessePrecedente, double vitesse);
 
   /**
    * Set les moteurs de la base aux valeurs données

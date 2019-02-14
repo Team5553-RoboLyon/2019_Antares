@@ -40,10 +40,10 @@
  *
  * 	RS-232	->
  *
- * 	DIO-0	->
- * 	DIO-1	->
- * 	DIO-2	->
- * 	DIO-3	->
+ * 	DIO-0	->    Encodeur Base Gauche A
+ * 	DIO-1	->    Encodeur Base Gauche B
+ * 	DIO-2	->    Encodeur Base Droite A
+ * 	DIO-3	->    Encodeur Base Droite B
  * 	DIO-4	->
  * 	DIO-5	->
  * 	DIO-6	->
@@ -62,27 +62,31 @@
  *  ANALOG IN -3 	->
  *
  *
- * 	PWM-0	->
- * 	PWM-1	->
- * 	PWM-2	->
- * 	PWM-3	->
- * 	PWM-4	->
- * 	PWM-5	->
- * 	PWM-6	->
- * 	PWM-7	->
+ * 	PWM-0	->    Roues Pince 1
+ * 	PWM-1	->    Roues Pince 2
+ * 	PWM-2	->    Base Gauche 1
+ * 	PWM-3	->    Base Droite 1
+ * 	PWM-4	->    Base Gauche 2
+ * 	PWM-5	->    Base Droite 2
+ * 	PWM-6	->    Base Gauche 3
+ * 	PWM-7	->    Base Droite 3
  * 	PWM-8	->
  * 	PWM-9	->
  *
  *
  * TABLEAU DE CABLAGE du PCM (Pneumatic Control Module)
  *
- * PWM-0	->
- * PWM-1	->
- * PWM-2	->
- * PWM-3	->
- * PWM-4	->
- * PWM-5	->
- * PWM-6	->
- * PWM-7	->
+ *  PCM-0	->    Pince Hatch A
+ *  PCM-1	->    Pince Hatch B
+ *  PCM-2	->    Pistons Hatch A
+ *  PCM-3	->    Pistons Hatch B
+ *  PCM-4	->    Verin Pince A
+ *  PCM-5	->    Verin Pince B
+ *  PCM-6	->    Ballshifter A
+ *  PCM-7	->    Ballshifter B
  *
+ * 
+ * TABLEAU DES ID DU CAN BUS
+ * 
+ *  Neo n°0 ->    Pivot
  */

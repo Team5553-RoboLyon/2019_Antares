@@ -6,7 +6,6 @@
 
 #include <frc/WPILib.h>
 #include <rev/CANSparkMax.h>
-#include <rev/CANEncoder.h>
 #include "Cablage.h"
 
 class Pivot : public frc::PIDSubsystem
@@ -27,18 +26,36 @@ class Pivot : public frc::PIDSubsystem
   void UsePIDOutput(double output) override;
   void InitDefaultCommand() override;
 
-  //Petite fonction pour gérer l'acceleration du pivot
+  /**
+   * Gère l'accelération du pivot
+   * Recupere la puissance qu'on veut mettre au moteur
+   * Return la puissance avec une accéleration limitée
+   */
   double Rampe(double vitesse);
 
-  // Petite fonction pour convertir des degrés en radians
+  /**
+   * Convertir un angle en degrés en radians
+   */
   double Deg2rad(double angle){ return (angle*M_PI)/180.0; };
   
-  // Petite fonction pour recuperer l'angle du pivot
+  /**
+   * Return l'angle du pivot en degrés
+   */
   double GetAngle();
 
+  /**
+   * Return l'angle du pivot en radians
+   */
+  double GetAngleRad();
+
+  /**
+   * Valeurs d'angles prédéfinies pour aller à une position donnée
+   */
   const double MILIEU = 0.0;
-  const double CARGO_AVANT = 90.0;
-  const double CARGO_ARRIERE = -90.0;
+  const double CARGO_AVANT = 105.0;
+  const double CARGO_ARRIERE = -105.0;
+  const double HATCH_AVANT = 90.0;
+  const double HATCH_ARRIERE = -90.0;
   const double FUSEE_AVANT = 45.0;
   const double FUSEE_ARRIERE = -45.0;
 };

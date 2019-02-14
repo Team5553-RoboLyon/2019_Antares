@@ -8,12 +8,17 @@ BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
   m_vitesseDroitePrecedente = 0.0;
   m_vitesseGauchePrecedente = 0.0;
 
+  // Inversion des moteur d'un côté de la base
+  // Les vitesse positives permettent ainsi d'avancer
   m_baseGauche.SetInverted(false);
   m_baseDroite.SetInverted(true);
 
+  // Inversion des encodeurs d'un côté de la base
+  // Anvancer fait ainsi augmenter la distance
   m_encodeurGauche.SetReverseDirection(false);
   m_encodeurDroit.SetReverseDirection(true);
 
+  // Set le ratio pour convertir les ticks en mètres
   m_encodeurGauche.SetDistancePerPulse(m_distanceParTickVitesse1);
   m_encodeurDroit.SetDistancePerPulse(m_distanceParTickVitesse1);
 
@@ -36,11 +41,13 @@ BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
 
 void BaseRoulante::Periodic()
 {
+  // Affiche l'êtat du ballshifter sur le ShuffleBoard
   frc::SmartDashboard::PutBoolean("Vitessse 1 active", m_vitesse1);
 }
 
 void BaseRoulante::InitDefaultCommand()
 {
+  // Par défaut, on éxécute cette command
   SetDefaultCommand(new DriveWithJoystick());
 }
 
@@ -62,12 +69,15 @@ double BaseRoulante::Rampe(double vitessePrecedente, double vitesse)
 
 void BaseRoulante::Drive(double gauche, double droite)
 {
+  // On change la valeur pour réduire l'accéleration
   gauche = Rampe(m_vitesseGauchePrecedente, gauche);
   droite = Rampe(m_vitesseDroitePrecedente, droite);
   
+  // On change la puissance des moteurs
   m_baseGauche.Set(gauche);
 	m_baseDroite.Set(droite);
 
+  // On actualise les vitesses stockées
   m_vitesseDroitePrecedente = droite;
   m_vitesseGauchePrecedente = gauche;
 }
@@ -81,17 +91,21 @@ void BaseRoulante::Stop()
 void BaseRoulante::ActiverVitesse1()
 {
   m_ballshiffter.Set(frc::DoubleSolenoid::Value::kReverse);
+	m_vitesse1 = true;
+
+  // Changement du ratio ticks/mètres pour coller à la nouvelle réduction
   m_encodeurGauche.SetDistancePerPulse(m_distanceParTickVitesse1);
   m_encodeurDroit.SetDistancePerPulse(m_distanceParTickVitesse1);
-	m_vitesse1 = true;
 }
 
 void BaseRoulante::ActiverVitesse2()
 {
   m_ballshiffter.Set(frc::DoubleSolenoid::Value::kForward);
+	m_vitesse1 = false;
+
+  // Changement du ratio ticks/mètres pour coller à la nouvelle réduction
   m_encodeurGauche.SetDistancePerPulse(m_distanceParTickVitesse2);
   m_encodeurDroit.SetDistancePerPulse(m_distanceParTickVitesse2);
-	m_vitesse1 = false;
 }
 
 void BaseRoulante::ChangerVitesse()

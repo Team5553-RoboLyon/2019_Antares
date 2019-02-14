@@ -5,13 +5,15 @@ Pince::Pince() : Subsystem("Pince")
 {
   m_positionHatch = true;
 
+  // Inversion de l'un des moteurs
+  // Ils doivent tourner dans des sens inverses pour être syncro
   m_roue1.SetInverted(false);
   m_roue2.SetInverted(true);
 
   // Permet d'afficher des infos sur la pince dans le shuffleboard
   AddChild("Roues", m_roues);
-  AddChild("Roues", m_roue1);
-  AddChild("Roues", m_roue2);
+  AddChild("Roues 1", m_roue1);
+  AddChild("Roues 2", m_roue2);
   AddChild("Verin", m_verin);
   AddChild("Pistons", m_pistons);
   AddChild("Pince à hatchs", m_hatchPince);
@@ -28,7 +30,7 @@ void Pince::Ouvrir()
   m_verin.Set(frc::DoubleSolenoid::Value::kForward);
   m_positionHatch = true;
 
-  // Quand la pince est ouverte on restreint les angles possibles
+  // Quand la pince est ouverte, on restreint les angles du pivot possibles
   Robot::m_pivot.SetInputRange(-90.0, 90.0);
 }
 
@@ -37,7 +39,7 @@ void Pince::Fermer()
   m_verin.Set(frc::DoubleSolenoid::Value::kReverse);
   m_positionHatch = false;
 
-  // Quand la pince est fermé on peut aller de -105° à 105°
+  // Quand la pince est fermé, le pivot peut aller de -105° à 105°
   Robot::m_pivot.SetInputRange(-105.0, 105.0);
 }
 

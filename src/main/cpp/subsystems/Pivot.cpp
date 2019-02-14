@@ -5,6 +5,7 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 0.015, 0.0, 0.0)
 {
   m_vitessePrecedente = 0.0;
 
+  // Afficher le controller PID dans le ShuffleBoard
   GetPIDController()->SetName("Pivot", "PIDSubsystem Controller");
 
   // Interdit les setpoints en dehors de [-90°; 90°]
@@ -20,30 +21,9 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 0.015, 0.0, 0.0)
 
 void Pivot::Periodic()
 {
+  // On affiche les infos du subsystem manuellement dans le ShuffleBoard
   frc::SmartDashboard::PutNumber("Angle Pivot", GetAngle());
   frc::SmartDashboard::PutNumber("Moteur Pivot", m_moteur.Get());
-}
-
-double Pivot::GetAngle()
-{
-  // Ratio pour convertir les ticks de l'encodeur en degrés
-  return m_encodeur.GetPosition() * m_angleParTick;
-}
-
-double Pivot::Rampe(double vitesse)
-{
-  if(vitesse > 0 && vitesse > m_vitessePrecedente + m_maxAcceleration)
-  {
-    vitesse = m_vitessePrecedente + m_maxAcceleration;
-  }
-  else if(vitesse < 0 && vitesse < m_vitessePrecedente - m_maxAcceleration)
-  {
-    vitesse = m_vitessePrecedente - m_maxAcceleration;
-  }
-
-  m_vitessePrecedente = vitesse;
-
-  return vitesse;  
 }
 
 double Pivot::ReturnPIDInput()
@@ -53,9 +33,6 @@ double Pivot::ReturnPIDInput()
 
 void Pivot::UsePIDOutput(double output)
 {
-  // Conversion de l'angle du pivot en radians
-  double angleEnRadians = Deg2rad(GetAngle());
-
   /**
   * Calcul de la force de gravité sur le bras du pivot
   * Elle est proportionelle à "l'abscisse" du bras
@@ -77,12 +54,12 @@ void Pivot::UsePIDOutput(double output)
   * Quand on renverse le cercle trigonométrique,
   * on retrouve bien la configuration du pivot
   */
-  double gravite = m_coefGravite * -sin(angleEnRadians);
+  double gravite = - m_coefGravite * sin(GetAngleRad());
 
   // On additionne les deux termes et on réduit l'accéleration
   double vitesse = Rampe(output + gravite);
 
-  // On ajoute le terme au PID pour contrer la gravité
+  // On met la puissance obtenue au moteur
   m_moteur.Set(vitesse);
 }
 
@@ -90,4 +67,34 @@ void Pivot::InitDefaultCommand()
 {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
+}
+
+double Pivot::Rampe(double vitesse)
+{
+  // Si la vitesse est superieure à zero alors l'acceleration se fait dans le sens croissant : 0.5 -> 1
+  if(vitesse > 0 && vitesse > m_vitessePrecedente + m_maxAcceleration)
+  {
+    vitesse = m_vitessePrecedente + m_maxAcceleration;
+  }
+  // Si la vitesse est inferieure à zero alors l'acceleration se fait dans le sens décroissant : -0.5 -> -1
+  else if(vitesse < 0 && vitesse < m_vitessePrecedente - m_maxAcceleration)
+  {
+    vitesse = m_vitessePrecedente - m_maxAcceleration;
+  }
+
+  m_vitessePrecedente = vitesse;
+
+  return vitesse;  
+}
+
+double Pivot::GetAngle()
+{
+  // Ratio pour convertir les ticks de l'encodeur en degrés
+  return m_encodeur.GetPosition() * m_angleParTick;
+}
+
+double Pivot::GetAngleRad()
+{
+  // Convertir les degrés en radians
+  return Deg2rad(GetAngle());
 }
