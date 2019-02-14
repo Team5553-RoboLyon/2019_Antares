@@ -29,6 +29,9 @@ class BaseRoulante : public frc::Subsystem
   const double m_maxAcceleration = 0.03;
   double m_vitesseDroitePrecedente, m_vitesseGauchePrecedente;
 
+  //Petite fonction pour gérer l'acceleration de la base
+  double Rampe(double vitessePrecedente, double vitesse);
+
  public:
   BaseRoulante();
   void Periodic() override;

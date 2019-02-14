@@ -44,13 +44,26 @@ void BaseRoulante::InitDefaultCommand()
   SetDefaultCommand(new DriveWithJoystick());
 }
 
+double BaseRoulante::Rampe(double vitessePrecedente, double vitesse)
+{
+  // Si la vitesse est superieure à zero alors l'acceleration se fait dans le sens croissant : 0.5 -> 1
+  if(vitesse > 0 && vitesse > vitessePrecedente + m_maxAcceleration)
+  {
+    vitesse = vitessePrecedente + m_maxAcceleration;
+  }
+  // Si la vitesse est inferieure à zero alors l'acceleration se fait dans le sens décroissant : -0.5 -> -1
+  else if(vitesse < 0 && vitesse < vitessePrecedente - m_maxAcceleration)
+  {
+    vitesse = vitessePrecedente - m_maxAcceleration;
+  }
+
+  return vitesse;
+}
+
 void BaseRoulante::Drive(double gauche, double droite)
 {
-  if(gauche > m_vitesseGauchePrecedente + m_maxAcceleration)
-    gauche = m_vitesseGauchePrecedente + m_maxAcceleration;
-  
-  if(droite > m_vitesseDroitePrecedente + m_maxAcceleration)
-    droite = m_vitesseDroitePrecedente + m_maxAcceleration;
+  gauche = Rampe(m_vitesseGauchePrecedente, gauche);
+  droite = Rampe(m_vitesseDroitePrecedente, droite);
   
   m_baseGauche.Set(gauche);
 	m_baseDroite.Set(droite);
