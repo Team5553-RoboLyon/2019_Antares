@@ -5,6 +5,9 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 0.015, 0.0, 0.0)
 {
   m_vitessePrecedente = 0.0;
 
+  // Ratio pour convertir les ticks de l'encodeur en degrés
+  m_encodeur.SetPositionConversionFactor(m_angleParTick);
+
   // Afficher le controller PID dans le ShuffleBoard
   GetPIDController()->SetName("Pivot", "PIDSubsystem Controller");
 
@@ -22,13 +25,13 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 0.015, 0.0, 0.0)
 void Pivot::Periodic()
 {
   // On affiche les infos du subsystem manuellement dans le ShuffleBoard
-  frc::SmartDashboard::PutNumber("Angle Pivot", GetAngle());
+  frc::SmartDashboard::PutNumber("Angle Pivot", m_encodeur.GetPosition());
   frc::SmartDashboard::PutNumber("Moteur Pivot", m_moteur.Get());
 }
 
 double Pivot::ReturnPIDInput()
 {
-  return GetAngle();
+  return m_encodeur.GetPosition();
 }
 
 void Pivot::UsePIDOutput(double output)
@@ -87,14 +90,8 @@ double Pivot::Rampe(double vitesse)
   return vitesse;  
 }
 
-double Pivot::GetAngle()
-{
-  // Ratio pour convertir les ticks de l'encodeur en degrés
-  return m_encodeur.GetPosition() * m_angleParTick;
-}
-
 double Pivot::GetAngleRad()
 {
   // Convertir les degrés en radians
-  return Deg2rad(GetAngle());
+  return Deg2rad(m_encodeur.GetPosition());
 }

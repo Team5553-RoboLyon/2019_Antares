@@ -37,11 +37,6 @@ class Pivot : public frc::PIDSubsystem
    * Convertir un angle en degrés en radians
    */
   double Deg2rad(double angle){ return (angle*M_PI)/180.0; };
-  
-  /**
-   * Return l'angle du pivot en degrés
-   */
-  double GetAngle();
 
   /**
    * Return l'angle du pivot en radians
