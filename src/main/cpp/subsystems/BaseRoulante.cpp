@@ -1,6 +1,5 @@
 #include "subsystems/BaseRoulante.h"
 #include "commands/baseRoulante/DriveWithJoystick.h"
-#include <frc/smartdashboard/SmartDashboard.h>
 
 BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
 {

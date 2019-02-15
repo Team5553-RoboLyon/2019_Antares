@@ -1,5 +1,4 @@
 #include "subsystems/Pivot.h"
-#include <frc/smartdashboard/SmartDashboard.h>
 
 Pivot::Pivot() : PIDSubsystem("Pivot", 0.015, 0.0, 0.0)
 {
