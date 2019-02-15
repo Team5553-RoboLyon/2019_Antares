@@ -25,6 +25,8 @@ void Pince::InitDefaultCommand()
   // SetDefaultCommand(new MySpecialCommand());
 }
 
+void Pince::Log() {}
+
 void Pince::Ouvrir()
 {
   m_verin.Set(frc::DoubleSolenoid::Value::kForward);

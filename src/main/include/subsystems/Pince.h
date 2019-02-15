@@ -21,6 +21,11 @@ class Pince : public frc::Subsystem
   void InitDefaultCommand() override;
 
   /**
+   * Affichage des informations sur le subsystem
+   */
+  void Log();
+
+  /**
    * Ouvre la pince pour pouvoir attraper des hatch panels
    */
   void Ouvrir();

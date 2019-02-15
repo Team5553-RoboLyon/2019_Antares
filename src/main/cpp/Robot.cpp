@@ -24,7 +24,14 @@ void Robot::RobotInit()
   m_pince.AttraperHatch();
 }
 
-void Robot::RobotPeriodic() {}
+void Robot::RobotPeriodic()
+{
+  // Affichage de toutes les infos des subsystems
+  m_baseRoulante.Log();
+  m_elevateur.Log();
+  m_pince.Log();
+  m_pivot.Log();
+}
 
 void Robot::DisabledInit() {}
 

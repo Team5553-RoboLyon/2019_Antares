@@ -22,13 +22,6 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 0.015, 0.0, 0.0)
   Enable();
 }
 
-void Pivot::Periodic()
-{
-  // On affiche les infos du subsystem manuellement dans le ShuffleBoard
-  frc::SmartDashboard::PutNumber("Angle Pivot", m_encodeur.GetPosition());
-  frc::SmartDashboard::PutNumber("Moteur Pivot", m_moteur.Get());
-}
-
 double Pivot::ReturnPIDInput()
 {
   return m_encodeur.GetPosition();
@@ -70,6 +63,14 @@ void Pivot::InitDefaultCommand()
 {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
+}
+
+
+void Pivot::Log()
+{
+  // Affichage manuel des infos du subsystem dans le ShuffleBoard
+  frc::SmartDashboard::PutNumber("Angle Pivot", m_encodeur.GetPosition());
+  frc::SmartDashboard::PutNumber("Moteur Pivot", m_moteur.Get());
 }
 
 double Pivot::Rampe(double vitesse)

@@ -39,16 +39,16 @@ BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
   AddChild("Ballshiffter", m_ballshiffter);
 }
 
-void BaseRoulante::Periodic()
-{
-  // Affiche l'êtat du ballshifter sur le ShuffleBoard
-  frc::SmartDashboard::PutBoolean("Vitessse 1 active", m_vitesse1);
-}
-
 void BaseRoulante::InitDefaultCommand()
 {
   // Par défaut, on éxécute cette command
   SetDefaultCommand(new DriveWithJoystick());
+}
+
+void BaseRoulante::Log()
+{
+  // Affiche l'êtat du ballshifter sur le ShuffleBoard
+  frc::SmartDashboard::PutBoolean("Vitessse 1 active", m_vitesse1);
 }
 
 double BaseRoulante::Rampe(double vitessePrecedente, double vitesse)

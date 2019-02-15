@@ -10,4 +10,9 @@ class Elevateur : public frc::PIDSubsystem
   double ReturnPIDInput() override;
   void UsePIDOutput(double output) override;
   void InitDefaultCommand() override;
+
+  /**
+   * Affichage des informations sur le subsystem
+   */
+  void Log();
 };

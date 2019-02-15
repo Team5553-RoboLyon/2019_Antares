@@ -21,10 +21,14 @@ class Pivot : public frc::PIDSubsystem
 
  public:
   Pivot();
-  void Periodic() override;
   double ReturnPIDInput() override;
   void UsePIDOutput(double output) override;
   void InitDefaultCommand() override;
+
+  /**
+   * Affichage des informations sur le subsystem
+   */
+  void Log();
 
   /**
    * Gère l'accelération du pivot

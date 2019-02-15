@@ -30,8 +30,12 @@ class BaseRoulante : public frc::Subsystem
 
  public:
   BaseRoulante();
-  void Periodic() override;
   void InitDefaultCommand() override;
+
+  /**
+   * Affichage des informations sur le subsystem
+   */
+  void Log();
 
   /**
    * Gère l'accelération de la base
