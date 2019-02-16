@@ -16,10 +16,10 @@ void DriveWithJoystick::Execute()
   double z = Robot::m_oi.GetJoystick().GetZ();
 
   // Si les valeurs lues sont trop petites, on les considères comme nulles
-	if (abs(y) < 0.2)
+	if (abs(y) < 0.15)
 		y = 0.0;
   
-	if (abs(z) < 0.2)
+	if (abs(z) < 0.25)
 		z = 0.0;
 
   //La "formule" pour calculer la vitesse de chaque moteur
