@@ -1,5 +1,9 @@
 #pragma once
 
+// Pour avoir M_PI
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 #include <frc/WPILib.h>
 #include "Cablage.h"
 
@@ -23,8 +27,10 @@ class BaseRoulante : public frc::Subsystem
   frc::DoubleSolenoid m_ballshiffter{PCM_BALLSHIFTER_A, PCM_BALLSHIFTER_B};
 
   bool m_vitesse1;
-  const double m_distanceParTickVitesse1 = 1.0;
-  const double m_distanceParTickVitesse2 = 1.0;
+
+  const double m_circonferenceRoues = 0.155 * M_PI;
+  const double m_distanceParTickVitesse1 = ((1.0/20.0)/12.0) * m_circonferenceRoues;
+  const double m_distanceParTickVitesse2 = ((1.0/20)/7.0) * m_circonferenceRoues;
   const double m_maxAcceleration = 0.03;
   double m_vitesseDroitePrecedente, m_vitesseGauchePrecedente;
 

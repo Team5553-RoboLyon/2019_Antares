@@ -14,8 +14,8 @@ BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
 
   // Inversion des encodeurs d'un côté de la base
   // Anvancer fait ainsi augmenter la distance
-  m_encodeurGauche.SetReverseDirection(false);
-  m_encodeurDroit.SetReverseDirection(true);
+  m_encodeurGauche.SetReverseDirection(true);
+  m_encodeurDroit.SetReverseDirection(false);
 
   // Set le ratio pour convertir les ticks en mètres
   m_encodeurGauche.SetDistancePerPulse(m_distanceParTickVitesse1);
