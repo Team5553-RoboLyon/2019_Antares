@@ -36,6 +36,10 @@ BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
   AddChild("Encodeur Droit", m_encodeurDroit);
   AddChild("Encodeur Gauche", m_encodeurGauche);
   AddChild("Ballshiffter", m_ballshiffter);
+
+  // Ouverture et fermeture du fichier pour effacer toutes les données
+  m_fichierOdometrie.open(m_nomFichier, std::ios::out | std::ios::trunc);
+  m_fichierOdometrie.close();
 }
 
 void BaseRoulante::InitDefaultCommand()
@@ -48,6 +52,11 @@ void BaseRoulante::Log()
 {
   // Affiche l'êtat du ballshifter sur le ShuffleBoard
   frc::SmartDashboard::PutBoolean("Vitessse 1 active", m_vitesse1);
+
+  // Ecrit dans les fichiers l'etat de la base
+  m_fichierOdometrie.open(m_nomFichier, std::ios::out | std::ios::app);
+  m_fichierOdometrie << m_encodeurDroit.GetDistance() << " " << m_encodeurGauche.GetDistance() << " " << m_vitesse1 << std::endl;
+  m_fichierOdometrie.close();
 }
 
 double BaseRoulante::Rampe(double vitessePrecedente, double vitesse)

@@ -4,6 +4,10 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
+// Pour écrire dans les fichiers
+#include <fstream>
+#include <string>
+
 #include <frc/WPILib.h>
 #include "Cablage.h"
 
@@ -25,6 +29,9 @@ class BaseRoulante : public frc::Subsystem
   frc::Encoder m_encodeurGauche{DIO_ENCODEUR_GAUCHE_A, DIO_ENCODEUR_GAUCHE_B};
 
   frc::DoubleSolenoid m_ballshiffter{PCM_BALLSHIFTER_A, PCM_BALLSHIFTER_B};
+
+  std::string m_nomFichier = "odometrie.txt";
+  std::fstream m_fichierOdometrie;
 
   bool m_vitesse1;
 
