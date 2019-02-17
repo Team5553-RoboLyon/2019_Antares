@@ -1,6 +1,8 @@
 #include "subsystems/BaseRoulante.h"
 #include "commands/baseRoulante/DriveWithJoystick.h"
 
+#include <time.h>
+
 BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
 {
   m_vitesse1 = true;
@@ -39,6 +41,7 @@ BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
 
   // Ouverture et fermeture du fichier pour effacer toutes les données
   m_fichierOdometrie.open(m_nomFichier, std::ios::out | std::ios::trunc);
+  m_fichierOdometrie << "timestamp ticksDroite ticksGauche vitesse1Activee" << std::endl;
   m_fichierOdometrie.close();
 }
 
@@ -55,7 +58,10 @@ void BaseRoulante::Log()
 
   // Ecrit dans les fichiers l'etat de la base
   m_fichierOdometrie.open(m_nomFichier, std::ios::out | std::ios::app);
-  m_fichierOdometrie << m_encodeurDroit.GetDistance() << " " << m_encodeurGauche.GetDistance() << " " << m_vitesse1 << std::endl;
+
+  struct timespec now;
+  clock_gettime(CLOCK_MONOTONIC, &now);
+  m_fichierOdometrie << now.tv_nsec << " " << m_encodeurDroit.Get() << " " << m_encodeurGauche.Get() << " " << m_vitesse1 << std::endl;
   m_fichierOdometrie.close();
 }
 
