@@ -30,5 +30,5 @@ class Robot : public frc::TimedRobot
   void TestPeriodic() override;
 
  private:
-  
+  frc::PowerDistributionPanel m_pdp{0};
 };

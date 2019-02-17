@@ -17,6 +17,9 @@ void Robot::RobotInit()
   frc::SmartDashboard::PutData(&m_pince);
   frc::SmartDashboard::PutData(&m_pivot);
 
+  // Affiche le courant de chaque moteur branché sur le PDP
+  frc::SmartDashboard::PutData(&m_pdp);
+
   // Initialisation de la pneumatique
   m_baseRoulante.ActiverVitesse1();
   m_pince.Ouvrir();

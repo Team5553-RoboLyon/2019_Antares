@@ -1,0 +1,264 @@
+{
+  "tabPane": [
+    {
+      "title": "BaseRoulante",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 100.0,
+        "showGrid": false,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "0,3": {
+            "size": [
+              5,
+              1
+            ],
+            "content": {
+              "_type": "Encoder",
+              "_source0": "network_table:///LiveWindow/BaseRoulante/Encodeur Gauche",
+              "_title": "Encodeur Gauche"
+            }
+          },
+          "8,3": {
+            "size": [
+              5,
+              1
+            ],
+            "content": {
+              "_type": "Encoder",
+              "_source0": "network_table:///LiveWindow/BaseRoulante/Encodeur Droit",
+              "_title": "Encodeur Droit"
+            }
+          },
+          "5,3": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "Gyro",
+              "_source0": "network_table:///LiveWindow/BaseRoulante/Gyro",
+              "_title": "Gyro",
+              "Visuals/Major tick spacing": 45.0,
+              "Visuals/Starting angle": 180.0,
+              "Visuals/Show tick mark ring": true
+            }
+          },
+          "8,1": {
+            "size": [
+              5,
+              1
+            ],
+            "content": {
+              "_type": "Speed Controller",
+              "_source0": "network_table:///LiveWindow/BaseRoulante/Base Droite",
+              "_title": "Base Droite",
+              "Visuals/Orientation": "HORIZONTAL"
+            }
+          },
+          "0,1": {
+            "size": [
+              5,
+              1
+            ],
+            "content": {
+              "_type": "Speed Controller",
+              "_source0": "network_table:///LiveWindow/BaseRoulante/Base Gauche",
+              "_title": "Base Gauche",
+              "Visuals/Orientation": "HORIZONTAL"
+            }
+          },
+          "0,4": {
+            "size": [
+              5,
+              2
+            ],
+            "content": {
+              "_type": "Graph",
+              "_source0": "network_table:///LiveWindow/BaseRoulante/Encodeur Gauche/Distance",
+              "_title": "Encodeur Gauche Distance",
+              "Graph/Visible time": 30.0,
+              "Visible data/LiveWindow/BaseRoulante/Encodeur Gauche/Distance": true
+            }
+          },
+          "8,4": {
+            "size": [
+              5,
+              2
+            ],
+            "content": {
+              "_type": "Graph",
+              "_source0": "network_table:///LiveWindow/BaseRoulante/Encodeur Droit/Distance",
+              "_title": "Encodeur Droit Distance",
+              "Graph/Visible time": 30.0,
+              "Visible data/LiveWindow/BaseRoulante/Encodeur Droit/Distance": true
+            }
+          },
+          "5,0": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "Boolean Box",
+              "_source0": "network_table:///SmartDashboard/Vitessse 1 active",
+              "_title": "Vitesse 1 active",
+              "Colors/Color when true": "#7CFC00FF",
+              "Colors/Color when false": "#8B0000FF"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Pince",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 100.0,
+        "showGrid": false,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "3,0": {
+            "size": [
+              7,
+              2
+            ],
+            "content": {
+              "_type": "Speed Controller",
+              "_source0": "network_table:///LiveWindow/Pince/Roues",
+              "_title": "Roues",
+              "Visuals/Orientation": "HORIZONTAL"
+            }
+          },
+          "3,4": {
+            "size": [
+              7,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Pince/Pistons/Value",
+              "_title": "Pistons"
+            }
+          },
+          "3,5": {
+            "size": [
+              7,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Pince/Verin/Value",
+              "_title": "Verin"
+            }
+          },
+          "3,3": {
+            "size": [
+              7,
+              1
+            ],
+            "content": {
+              "_type": "Text View",
+              "_source0": "network_table:///LiveWindow/Pince/Pince à hatchs/Value",
+              "_title": "Pince à hatchs"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Pivot",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 100.0,
+        "showGrid": false,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "5,1": {
+            "size": [
+              2,
+              3
+            ],
+            "content": {
+              "_type": "PID Controller",
+              "_source0": "network_table:///LiveWindow/Pivot/PIDSubsystem Controller",
+              "_title": "PID Controller"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Elevateur",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 100.0,
+        "showGrid": false,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "5,1": {
+            "size": [
+              2,
+              3
+            ],
+            "content": {
+              "_type": "PID Controller",
+              "_source0": "network_table:///LiveWindow/Elevateur/PIDController",
+              "_title": "LiveWindow/Elevateur/PIDController"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "General",
+      "autoPopulate": false,
+      "autoPopulatePrefix": "",
+      "widgetPane": {
+        "gridSize": 100.0,
+        "showGrid": false,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              13,
+              1
+            ],
+            "content": {
+              "_type": "Basic FMS Info",
+              "_source0": "network_table:///FMSInfo",
+              "_title": "FMSInfo"
+            }
+          },
+          "0,1": {
+            "size": [
+              13,
+              5
+            ],
+            "content": {
+              "_type": "PDP",
+              "_source0": "network_table:///LiveWindow/Ungrouped/PowerDistributionPanel[0]",
+              "_title": "LiveWindow/Ungrouped/PowerDistributionPanel[0]",
+              "Visuals/Show voltage and current values": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "windowGeometry": {
+    "x": 0.0,
+    "y": 0.0,
+    "width": 1600.0,
+    "height": 860.0
+  }
+}
