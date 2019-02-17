@@ -89,4 +89,22 @@
  * TABLEAU DES ID DU CAN BUS
  * 
  *  Neo n°0 ->    Pivot
+ * 
+ * TABLEAU DE CABLAGE du PDP
+ * Nathan la choing
+ *  PDP-0	->    
+ *  PDP-1	->  Base Gauche 1
+ *  PDP-2	->  Base Gauche 2
+ *  PDP-3	->  Base Gauche 3
+ *  PDP-4	->  Roues Pince 2
+ *  PDP-5	->    
+ *  PDP-6	->    
+ *  PDP-7	->    
+ *  PDP-8	->  Pivot
+ *  PDP-9   ->
+ *  PDP-10  ->
+ *  PDP-11  ->  Roues Pince 1 
+ *  PDP-12  ->  Base Droite 1
+ *  PDP-13  ->  Base Droite 2
+ *  PDP-14  ->  Base Droite 3
  */
