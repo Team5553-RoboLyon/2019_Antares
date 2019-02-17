@@ -11,7 +11,11 @@ void AttraperCargo::Initialize()
   Robot::m_pince.AttraperCargo();
 }
 
-void AttraperCargo::Execute() {}
+void AttraperCargo::Execute()
+{
+  if(TimeSinceInitialized() > 0.6)
+    Robot::m_pince.StopCargoRampe();
+}
 
 void AttraperCargo::End()
 {

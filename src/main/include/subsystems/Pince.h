@@ -15,6 +15,8 @@ class Pince : public frc::Subsystem
   frc::DoubleSolenoid m_hatchPince{PCM_HATCH_PINCE_A, PCM_HATCH_PINCE_B};
 
   bool m_positionHatch;
+  double m_vitessePrecedente;
+  const double m_maxDeceleration = 0.1;
 
  public:
   Pince();
@@ -60,6 +62,12 @@ class Pince : public frc::Subsystem
    * Stoppe les roues de la pince à cargo
    */
   void StopCargo();
+
+  /**
+   * Gère la deceleration des roues pour attraper du cargo
+   * A appeler plusieurs fois pour réduire sa vitesse
+   */
+  void StopCargoRampe();
 
   /**
    * Attrape un hatch panel en ouvrant la petite pince

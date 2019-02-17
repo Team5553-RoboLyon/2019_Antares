@@ -77,6 +77,23 @@ void Pince::StopCargo()
   m_roues.StopMotor();
 }
 
+void Pince::StopCargoRampe()
+{
+  double vitesse;
+  
+  if (m_vitessePrecedente >=  0)
+  {
+    vitesse = m_vitessePrecedente - m_maxDeceleration;
+  }
+  else
+  {
+    vitesse = 0.0;
+  }
+  
+  m_vitessePrecedente = vitesse;
+  m_roues.Set(vitesse);
+}
+
 void Pince::AttraperHatch()
 {
   m_hatchPince.Set(frc::DoubleSolenoid::Value::kForward);
