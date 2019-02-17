@@ -59,6 +59,6 @@ class Pivot : public frc::PIDSubsystem
   HATCH_AVANT = 90,
   HATCH_ARRIERE = -90,
   FUSEE_AVANT = 45,
-  FUSEE_ARRIERE = -45}
-  }
-}
+  FUSEE_ARRIERE = -45
+  };
+};

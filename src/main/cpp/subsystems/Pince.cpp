@@ -30,7 +30,7 @@ void Pince::Log() {}
 void Pince::Ouvrir()
 {
   // Ne pas ouvrir la pince si le pivot est sous 90° ou -90°
-  if(abs(Robot::m_pivot.GetSetpoint()) > 90.0)
+  if(abs(Robot::m_pivot.GetSetpoint()) <= 90.0)
   {
     m_verin.Set(frc::DoubleSolenoid::Value::kForward);
     m_positionHatch = true;
