@@ -50,11 +50,15 @@ class Pivot : public frc::PIDSubsystem
   /**
    * Valeurs d'angles prédéfinies pour aller à une position donnée
    */
-  const double MILIEU = 0.0;
-  const double CARGO_AVANT = 105.0;
-  const double CARGO_ARRIERE = -105.0;
-  const double HATCH_AVANT = 90.0;
-  const double HATCH_ARRIERE = -90.0;
-  const double FUSEE_AVANT = 45.0;
-  const double FUSEE_ARRIERE = -45.0;
-};
+  
+  enum positions
+  {
+  MILIEU = 0,
+  CARGO_AVANT = 105,
+  CARGO_ARRIERE = -105,
+  HATCH_AVANT = 90,
+  HATCH_ARRIERE = -90,
+  FUSEE_AVANT = 45,
+  FUSEE_ARRIERE = -45}
+  }
+}

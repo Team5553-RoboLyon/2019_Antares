@@ -14,11 +14,11 @@ OI::OI()
   m_button3.WhenPressed(new AttraperObjet());
   m_button4.WhenPressed(new EjecterObjet());
 
-  m_button8.WhenPressed(new SetSetpointPivot(Robot::m_pivot.MILIEU));
-  m_button9.WhenPressed(new SetSetpointPivot(Robot::m_pivot.HATCH_ARRIERE));
-  m_button10.WhenPressed(new SetSetpointPivot(Robot::m_pivot.HATCH_AVANT));
-  m_button11.WhenPressed(new SetSetpointPivot(Robot::m_pivot.CARGO_ARRIERE));
-  m_button12.WhenPressed(new SetSetpointPivot(Robot::m_pivot.CARGO_AVANT));
+  m_button8.WhenPressed(new SetSetpointPivot(Pivot::MILIEU));
+  m_button9.WhenPressed(new SetSetpointPivot(Pivot::HATCH_ARRIERE));
+  m_button10.WhenPressed(new SetSetpointPivot(Pivot::HATCH_AVANT));
+  m_button11.WhenPressed(new SetSetpointPivot(Pivot::FUSEE_ARRIERE));
+  m_button12.WhenPressed(new SetSetpointPivot(Pivot::FUSEE_AVANT));
 }
 
 frc::Joystick& OI::GetJoystick()

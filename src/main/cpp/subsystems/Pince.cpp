@@ -29,11 +29,15 @@ void Pince::Log() {}
 
 void Pince::Ouvrir()
 {
-  m_verin.Set(frc::DoubleSolenoid::Value::kForward);
-  m_positionHatch = true;
+  // Ne pas ouvrir la pince si le pivot est sous 90° ou -90°
+  if(abs(Robot::m_pivot.GetSetpoint()) > 90.0)
+  {
+    m_verin.Set(frc::DoubleSolenoid::Value::kForward);
+    m_positionHatch = true;
 
-  // Quand la pince est ouverte, on restreint les angles du pivot possibles
-  Robot::m_pivot.SetInputRange(-90.0, 90.0);
+    // Quand la pince est ouverte, on restreint les angles du pivot possibles
+    Robot::m_pivot.SetInputRange(-90.0, 90.0);
+  }
 }
 
 void Pince::Fermer()

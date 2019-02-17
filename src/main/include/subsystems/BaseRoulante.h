@@ -30,7 +30,7 @@ class BaseRoulante : public frc::Subsystem
 
   frc::DoubleSolenoid m_ballshiffter{PCM_BALLSHIFTER_A, PCM_BALLSHIFTER_B};
 
-  std::string m_nomFichier = "odometrie.txt";
+  std::string m_nomFichier = "/home/lvuser/odometrie.txt";
   std::fstream m_fichierOdometrie;
 
   bool m_vitesse1;

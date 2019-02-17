@@ -5,6 +5,7 @@ Pivot::Pivot() : PIDSubsystem("Pivot", 0.015, 0.0, 0.0)
   m_vitessePrecedente = 0.0;
 
   // Ratio pour convertir les ticks de l'encodeur en degrés
+  m_encodeur.SetPosition(0.0);
   m_encodeur.SetPositionConversionFactor(m_angleParTick);
 
   // Afficher le controller PID dans le ShuffleBoard
