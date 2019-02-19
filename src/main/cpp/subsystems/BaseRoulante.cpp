@@ -55,6 +55,8 @@ void BaseRoulante::Log()
 {
   // Affiche l'êtat du ballshifter sur le ShuffleBoard
   frc::SmartDashboard::PutBoolean("Vitessse 1 active", m_vitesse1);
+  frc::SmartDashboard::PutNumber("Ticks Gauche", m_encodeurGauche.Get());
+  frc::SmartDashboard::PutNumber("Ticks Droite", m_encodeurDroit.Get());
 
   // Ecrit dans les fichiers l'etat de la base
   m_fichierOdometrie.open(m_nomFichier, std::ios::out | std::ios::app);
