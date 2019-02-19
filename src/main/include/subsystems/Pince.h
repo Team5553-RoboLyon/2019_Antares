@@ -15,7 +15,6 @@ class Pince : public frc::Subsystem
   frc::DoubleSolenoid m_hatchPince{PCM_HATCH_PINCE_A, PCM_HATCH_PINCE_B};
 
   bool m_positionHatch;
-  double m_vitessePrecedente;
   const double m_maxDeceleration = 0.1;
 
  public:

@@ -81,16 +81,15 @@ void Pince::StopCargoRampe()
 {
   double vitesse;
   
-  if (m_vitessePrecedente >=  0)
+  if (m_roues.Get() >  0.1)
   {
-    vitesse = m_vitessePrecedente - m_maxDeceleration;
+    vitesse = m_roues.Get() - m_maxDeceleration;
   }
   else
   {
     vitesse = 0.0;
   }
   
-  m_vitessePrecedente = vitesse;
   m_roues.Set(vitesse);
 }
 
