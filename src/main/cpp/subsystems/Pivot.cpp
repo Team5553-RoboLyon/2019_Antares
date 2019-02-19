@@ -1,4 +1,5 @@
 #include "subsystems/Pivot.h"
+#include "commands/pivot/AjusterPivot.h"
 
 Pivot::Pivot() : PIDSubsystem("Pivot", 0.015, 0.0, 0.0)
 {
@@ -61,8 +62,7 @@ void Pivot::UsePIDOutput(double output)
 
 void Pivot::InitDefaultCommand()
 {
-  // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
+  SetDefaultCommand(new AjusterPivot());
 }
 
 
