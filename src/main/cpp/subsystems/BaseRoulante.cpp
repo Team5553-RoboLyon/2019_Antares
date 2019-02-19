@@ -11,8 +11,8 @@ BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
 
   // Inversion des moteur d'un côté de la base
   // Les vitesse positives permettent ainsi d'avancer
-  m_baseGauche.SetInverted(false);
-  m_baseDroite.SetInverted(true);
+  m_baseGauche.SetInverted(true);
+  m_baseDroite.SetInverted(false);
 
   // Inversion des encodeurs d'un côté de la base
   // Anvancer fait ainsi augmenter la distance
