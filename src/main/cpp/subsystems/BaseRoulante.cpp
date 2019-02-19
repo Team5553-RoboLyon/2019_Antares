@@ -85,6 +85,8 @@ double BaseRoulante::Rampe(double vitessePrecedente, double vitesse)
 
 void BaseRoulante::Drive(double gauche, double droite)
 {
+  droite *= 0.972;
+
   // On change la valeur pour réduire l'accéleration
   gauche = Rampe(m_vitesseGauchePrecedente, gauche);
   droite = Rampe(m_vitesseDroitePrecedente, droite);
