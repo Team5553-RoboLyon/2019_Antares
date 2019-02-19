@@ -40,11 +40,17 @@ void Robot::DisabledInit() {}
 
 void Robot::DisabledPeriodic() {frc::Scheduler::GetInstance()->Run();}
 
-void Robot::AutonomousInit() {}
+void Robot::AutonomousInit()
+{
+  m_autoCommand.Start();
+}
 
 void Robot::AutonomousPeriodic() {frc::Scheduler::GetInstance()->Run();}
 
-void Robot::TeleopInit() {}
+void Robot::TeleopInit()
+{
+  m_autoCommand.Cancel();
+}
 
 void Robot::TeleopPeriodic() {frc::Scheduler::GetInstance()->Run();}
 

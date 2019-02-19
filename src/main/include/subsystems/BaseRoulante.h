@@ -99,6 +99,18 @@ class BaseRoulante : public frc::Subsystem
   double GetDistanceGauche();
 
   /**
+   * Return les ticks de l'encodeur gauche depuis le dernier reset
+   * Valeur positive pour un déplacement en avant
+   */
+  int GetTicksGauche();
+
+  /**
+   * Return les ticks de l'encodeur droit depuis le dernier reset
+   * Valeur positive pour un déplacement en avant
+   */
+  int GetTicksDroite();
+
+  /**
    * Return l'angle parcouru en degré depuis le dernier reset
    * Valeur positive dans le sens des aiguilles d'une montre
    */

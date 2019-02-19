@@ -144,6 +144,18 @@ double BaseRoulante::GetDistanceGauche()
   return m_encodeurGauche.GetDistance();
 }
 
+
+int BaseRoulante::GetTicksGauche()
+{
+  return m_encodeurGauche.Get();
+}
+
+int BaseRoulante::GetTicksDroite()
+{
+  return m_encodeurGauche.Get();
+}
+
+
 double BaseRoulante::GetAngle()
 {
   return m_gyro.GetAngle();
