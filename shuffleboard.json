@@ -234,8 +234,8 @@
               "_type": "Simple Dial",
               "_source0": "network_table:///SmartDashboard/Angle Pivot",
               "_title": "Angle",
-              "Range/Min": 0.0,
-              "Range/Max": 100.0,
+              "Range/Min": -105.0,
+              "Range/Max": -105.0,
               "Visuals/Show value": true
             }
           },
