@@ -71,6 +71,7 @@ void Pivot::Log()
   // Affichage manuel des infos du subsystem dans le ShuffleBoard
   frc::SmartDashboard::PutNumber("Angle Pivot", m_encodeur.GetPosition());
   frc::SmartDashboard::PutNumber("Moteur Pivot", m_moteur.Get());
+  frc::SmartDashboard::PutNumber("Courant Moteur Pivot", m_moteur.GetOutputCurrent());
 }
 
 double Pivot::Rampe(double vitesse)
