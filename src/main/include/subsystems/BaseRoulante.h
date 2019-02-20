@@ -4,9 +4,9 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-// Pour écrire dans les fichiers
+/*// Pour écrire dans les fichiers
 #include <fstream>
-#include <string>
+#include <string>*/
 
 #include <frc/WPILib.h>
 #include "Cablage.h"
@@ -30,8 +30,8 @@ class BaseRoulante : public frc::Subsystem
 
   frc::DoubleSolenoid m_ballshiffter{PCM_BALLSHIFTER_A, PCM_BALLSHIFTER_B};
 
-  std::string m_nomFichier = "/home/lvuser/odometrie.txt";
-  std::fstream m_fichierOdometrie;
+  /*std::string m_nomFichier = "/home/lvuser/odometrie.txt";
+  std::fstream m_fichierOdometrie;*/
 
   bool m_vitesse1;
 
