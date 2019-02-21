@@ -1,5 +1,10 @@
 #include "Robot.h"
 
+#include <thread>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/core/core.hpp>
+#include <cscore.h>
+
 
 OI Robot::m_oi;
 
@@ -8,6 +13,38 @@ Elevateur Robot::m_elevateur;
 Pince Robot::m_pince;
 Pivot Robot::m_pivot;
 
+void Robot::RetourVideo()
+{
+  // Création de la caméra usb + propriétés
+  cs::UsbCamera camera{"camera", 0};
+  camera.SetResolution(320, 240);
+  camera.SetBrightness(0);
+
+  // Objets pour pouvoir récuperer l'image de la caméra et la streamer
+  cs::CvSink cvSink = frc::CameraServer::GetInstance()->GetVideo(camera);
+  cs::CvSource outputStream = frc::CameraServer::GetInstance()->PutVideo("Pince", 320, 240);
+
+  // La Mat pour stocker l'image
+  cv::Mat source;
+
+  // On attend que la caméra soit detectée
+  while(cvSink.GrabFrame(source) == 0) {}
+
+  while(true)
+  {
+    // On récupère l'image de la caméra
+    cvSink.GrabFrame(source);
+    
+    // Si le pivot est à l'envers on retourne l'image
+    if(m_pivot.GetSetpoint() < 0)
+    {
+      cv::flip(source, source, -1);
+    }
+
+    // On stream l'image modifiée
+    outputStream.PutFrame(source);
+  }
+}
 
 void Robot::RobotInit()
 {
@@ -25,6 +62,10 @@ void Robot::RobotInit()
   m_pince.Ouvrir();
   m_pince.RentrerPistons();
   m_pince.AttraperHatch();
+
+  // Thread pour le retour video du pilote
+  std::thread RetourVideoThread(RetourVideo);
+  RetourVideoThread.detach();
 }
 
 void Robot::RobotPeriodic()
