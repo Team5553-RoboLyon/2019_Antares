@@ -58,7 +58,9 @@ class Pivot : public frc::PIDSubsystem
   CARGO_ARRIERE = -105,
   HATCH_AVANT = 90,
   HATCH_ARRIERE = -90,
-  FUSEE_AVANT = 45,
-  FUSEE_ARRIERE = -45
+  BATEAU_CARGO_AVANT = 55,
+  BATEAU_CARGO_ARRIERE = -55,
+  FUSEE_AVANT = 30,
+  FUSEE_ARRIERE = -30
   };
 };
