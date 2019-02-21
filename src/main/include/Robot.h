@@ -9,6 +9,8 @@
 #include "subsystems/Pince.h"
 #include "subsystems/Pivot.h"
 
+#include "commands/baseRoulante/FaireUneSplineStylee.h"
+
 class Robot : public frc::TimedRobot
 {
  public:
@@ -31,6 +33,6 @@ class Robot : public frc::TimedRobot
 
  private:
   frc::PowerDistributionPanel m_pdp{0};
-
+  FaireUneSplineStylee m_autoCommand;
   static void RetourVideo();
 };

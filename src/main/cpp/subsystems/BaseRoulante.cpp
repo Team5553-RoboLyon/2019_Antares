@@ -19,6 +19,11 @@ BaseRoulante::BaseRoulante() : Subsystem("BaseRoulante")
   m_encodeurGauche.SetReverseDirection(true);
   m_encodeurDroit.SetReverseDirection(false);
 
+  // Remettre les capteurs à zéro
+  m_gyro.Reset();
+  m_encodeurDroit.Reset();
+  m_encodeurGauche.Reset();
+
   // Set le ratio pour convertir les ticks en mètres
   m_encodeurGauche.SetDistancePerPulse(m_distanceParTickVitesse1);
   m_encodeurDroit.SetDistancePerPulse(m_distanceParTickVitesse1);
@@ -143,6 +148,18 @@ double BaseRoulante::GetDistanceGauche()
 {
   return m_encodeurGauche.GetDistance();
 }
+
+
+int BaseRoulante::GetTicksGauche()
+{
+  return m_encodeurGauche.Get();
+}
+
+int BaseRoulante::GetTicksDroite()
+{
+  return m_encodeurGauche.Get();
+}
+
 
 double BaseRoulante::GetAngle()
 {
