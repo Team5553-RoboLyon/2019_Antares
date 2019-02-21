@@ -25,6 +25,14 @@ void AjusterPivot::Execute()
     //SetSetpointRelative(-12) = on soustrait 12 au dernier setpoint d�fini
     Robot::m_pivot.SetSetpointRelative(-1.5);
   }
+  else if(m_pov == 90)
+  {
+    Robot::m_pivot.SetSetpoint(Pivot::FUSEE_ARRIERE);
+  }
+  else if(m_pov == 270)
+  {
+    Robot::m_pivot.SetSetpoint(Pivot::FUSEE_AVANT);
+  }
 }
 
 bool AjusterPivot::IsFinished()
