@@ -12,11 +12,11 @@ FaireUneSplineStylee::FaireUneSplineStylee()
 void FaireUneSplineStylee::Initialize()
 {
   // Inversion des trajectoires car bug de PathWeaver
-  FILE *fileDroite = fopen( "/home/lvuser/deploy/path.left.pf1.csv", "r");
+  FILE *fileDroite = fopen( "/home/lvuser/deploy/output/path.left.pf1.csv", "r");
   int length = pathfinder_deserialize_csv(fileDroite, m_trajectoireDroite);
   fclose(fileDroite);
 
-  FILE *fileGauche = fopen( "/home/lvuser/deploy/path.right.pf1.csv", "r");
+  FILE *fileGauche = fopen( "/home/lvuser/deploy/output/path.right.pf1.csv", "r");
   m_trajectory_length = pathfinder_deserialize_csv(fileGauche, m_trajectoireGauche);
   fclose(fileGauche);
 
