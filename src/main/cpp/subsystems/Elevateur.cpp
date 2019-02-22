@@ -1,31 +1,26 @@
 #include "subsystems/Elevateur.h"
+#include "commands/elevateur/DeplacerRobot.h"
 
-Elevateur::Elevateur() : PIDSubsystem("Elevateur", 1.0, 0.0, 0.0)
-{
-  // Use these to get going:
-  // SetSetpoint() -  Sets where the PID controller should move the system
-  //                  to
-  // Enable() - Enables the PID controller.
-}
-
-double Elevateur::ReturnPIDInput()
-{
-  // Return your input value for the PID loop
-  // e.g. a sensor, like a potentiometer:
-  // yourPot->SetAverageVoltage() / kYourMaxVoltage;
-  return 0;
-}
-
-void Elevateur::UsePIDOutput(double output)
-{
-  // Use output to drive your system, like a motor
-  // e.g. yourMotor->Set(output);
-}
+Elevateur::Elevateur() : Subsystem("Elevateur") {}
 
 void Elevateur::InitDefaultCommand()
 {
-  // Set the default command for a subsystem here.
-  // SetDefaultCommand(new MySpecialCommand());
+  SetDefaultCommand(new DeplacerRobot());
 }
 
 void Elevateur::Log() {}
+
+void Elevateur::SetMoteurAvant(double vitesse)
+{
+  m_moteurAvant.Set(vitesse);
+}
+
+void Elevateur::SetMoteurArriere(double vitesse)
+{
+  m_moteurArriere.Set(vitesse);
+}
+
+void Elevateur::SetRoues(double vitesse)
+{
+  m_roues.Set(vitesse);
+}
