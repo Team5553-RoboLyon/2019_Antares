@@ -1,8 +1,7 @@
 #include "Robot.h"
 
 #include <thread>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/core/core.hpp>
+#include <opencv2/opencv.hpp>
 #include <cscore.h>
 
 
@@ -16,24 +15,25 @@ Pivot Robot::m_pivot;
 void Robot::RetourVideo()
 {
   // Création de la caméra usb + propriétés
-  cs::UsbCamera camera{"camera", 0};
-  camera.SetResolution(320, 240);
-  camera.SetBrightness(0);
+  cv::VideoCapture camera(0);
+	camera.set(cv::CAP_PROP_BRIGHTNESS, 0);
+  camera.set(cv::CAP_PROP_FRAME_WIDTH, 320);
+	camera.set(cv::CAP_PROP_FRAME_HEIGHT, 240);
+	camera.set(cv::CAP_PROP_FPS, 30);
 
-  // Objets pour pouvoir récuperer l'image de la caméra et la streamer
-  cs::CvSink cvSink = frc::CameraServer::GetInstance()->GetVideo(camera);
-  cs::CvSource outputStream = frc::CameraServer::GetInstance()->PutVideo("Pince", 320, 240);
+  // Objet pour pouvoir streamer l'image de la caméra
+  cs::CvSource outputStream = frc::CameraServer::GetInstance()->PutVideo("Pince Arriere", 320, 240);
 
   // La Mat pour stocker l'image
   cv::Mat source;
 
   // On attend que la caméra soit detectée
-  while(cvSink.GrabFrame(source) == 0) {}
+  while(camera.read(source) == 0) {}
 
   while(true)
   {
     // On récupère l'image de la caméra
-    cvSink.GrabFrame(source);
+    camera.read(source);
     
     // Si le pivot est à l'envers on retourne l'image
     if(m_pivot.GetSetpoint() < 0)
@@ -83,14 +83,14 @@ void Robot::DisabledPeriodic() {frc::Scheduler::GetInstance()->Run();}
 
 void Robot::AutonomousInit()
 {
-  m_autoCommand.Start();
+  //m_autoCommand.Start();
 }
 
 void Robot::AutonomousPeriodic() {frc::Scheduler::GetInstance()->Run();}
 
 void Robot::TeleopInit()
 {
-  m_autoCommand.Cancel();
+  //m_autoCommand.Cancel();
 }
 
 void Robot::TeleopPeriodic() {frc::Scheduler::GetInstance()->Run();}
