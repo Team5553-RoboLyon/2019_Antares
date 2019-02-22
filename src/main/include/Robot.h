@@ -33,6 +33,5 @@ class Robot : public frc::TimedRobot
 
  private:
   frc::PowerDistributionPanel m_pdp{0};
-  FaireUneSplineStylee m_autoCommand;
   static void RetourVideo();
 };

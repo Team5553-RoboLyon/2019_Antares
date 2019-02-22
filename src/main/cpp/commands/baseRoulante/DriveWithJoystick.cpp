@@ -12,8 +12,8 @@ void DriveWithJoystick::Initialize() {}
 void DriveWithJoystick::Execute()
 {
   // On récupère les valeurs du joystick
-  double y = -Robot::m_oi.GetJoystick().GetY();
-  double z = -Robot::m_oi.GetJoystick().GetZ();
+  double y = -Robot::m_oi.GetJoystick1().GetY();
+  double z = -Robot::m_oi.GetJoystick1().GetZ();
 
   // Si les valeurs lues sont trop petites, on les considères comme nulles
 	if (abs(y) < 0.15)
