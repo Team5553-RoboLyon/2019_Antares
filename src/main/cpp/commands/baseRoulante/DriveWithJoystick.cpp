@@ -29,7 +29,7 @@ void DriveWithJoystick::Execute()
     y = -(exp(abs(y))-1) * 0.58;
 
   // Fonction carrée pour baisser les valeurs basses et laisser les valeurs hautes hautes
-  z = z * abs(z);
+  //z = z * abs(z);
 
   //La "formule" pour calculer la vitesse de chaque moteur
 	double vitesseGauche = y - 0.5 * z;
