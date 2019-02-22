@@ -9,7 +9,7 @@ MonterRouesArrieres::MonterRouesArrieres()
 void MonterRouesArrieres::Initialize()
 {
   Robot::m_elevateur.SetMoteurAvant(0.0);
-  Robot::m_elevateur.SetMoteurAvant(0.0);
+  Robot::m_elevateur.SetMoteurArriere(0.0);
 }
 
 void MonterRouesArrieres::Execute()
@@ -24,7 +24,7 @@ bool MonterRouesArrieres::IsFinished() { return false; }
 void MonterRouesArrieres::End()
 {
   Robot::m_elevateur.SetMoteurAvant(0.0);
-  Robot::m_elevateur.SetMoteurAvant(0.0);
+  Robot::m_elevateur.SetMoteurArriere(0.0);
 }
 
 void MonterRouesArrieres::Interrupted()

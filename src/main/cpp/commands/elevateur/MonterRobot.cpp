@@ -9,7 +9,7 @@ MonterRobot::MonterRobot()
 void MonterRobot::Initialize()
 {
   Robot::m_elevateur.SetMoteurAvant(0.0);
-  Robot::m_elevateur.SetMoteurAvant(0.0);
+  Robot::m_elevateur.SetMoteurArriere(0.0);
 }
 
 void MonterRobot::Execute()
@@ -25,7 +25,7 @@ bool MonterRobot::IsFinished() { return false; }
 void MonterRobot::End()
 {
   Robot::m_elevateur.SetMoteurAvant(0.0);
-  Robot::m_elevateur.SetMoteurAvant(0.0);
+  Robot::m_elevateur.SetMoteurArriere(0.0);
 }
 
 void MonterRobot::Interrupted()
