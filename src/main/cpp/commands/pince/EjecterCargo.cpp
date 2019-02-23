@@ -9,9 +9,19 @@ EjecterCargo::EjecterCargo() : TimedCommand(1.0)
 void EjecterCargo::Initialize()
 {
   Robot::m_pince.EjecterCargo();
+  m_timer.Reset();
+  m_timer.Start();
 }
 
 void EjecterCargo::Execute() {}
+
+bool EjecterCargo::IsFinished()
+{
+  if(Robot::m_oi.m_button4.Get())
+    m_timer.Reset();
+
+  return m_timer.Get() > 1.0;
+}
 
 void EjecterCargo::End()
 {

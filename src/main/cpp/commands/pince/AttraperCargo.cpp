@@ -9,12 +9,22 @@ AttraperCargo::AttraperCargo() : TimedCommand(1.0)
 void AttraperCargo::Initialize()
 {
   Robot::m_pince.AttraperCargo();
+  m_timer.Reset();
+  m_timer.Start();
 }
 
 void AttraperCargo::Execute()
 {
-  if(TimeSinceInitialized() > 0.6)
+  if(m_timer.Get() > 0.4)
     Robot::m_pince.StopCargoRampe();
+}
+
+bool AttraperCargo::IsFinished()
+{
+  if(Robot::m_oi.m_button3.Get())
+    m_timer.Reset();
+
+  return m_timer.Get() > 1.0;
 }
 
 void AttraperCargo::End()

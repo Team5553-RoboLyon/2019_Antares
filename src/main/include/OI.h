@@ -8,8 +8,7 @@ class OI
   OI();
   frc::Joystick& GetJoystick1();
   frc::Joystick& GetJoystick2();
- 
- private:
+
   frc::Joystick m_joystick1{0};
   frc::Joystick m_joystick2{1};
 

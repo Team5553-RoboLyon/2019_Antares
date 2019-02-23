@@ -1,6 +1,7 @@
 #pragma once
 
 #include <frc/commands/TimedCommand.h>
+#include <frc/Timer.h>
 
 /**
  * Attrape le cargo en faisant tourner les roues de la pince
@@ -12,6 +13,10 @@ class AttraperCargo : public frc::TimedCommand
   explicit AttraperCargo();
   void Initialize() override;
   void Execute() override;
+  bool IsFinished() override;
   void End() override;
   void Interrupted() override;
+
+ private:
+  frc::Timer m_timer;
 };
