@@ -1,18 +1,6 @@
 # Robot Deep Space 2019
 
-## 3rd Party Libraries
-
-### Installation de la librairie CTRE
-Cross The Road Electonics pour les VictorSPX en CAN
-
-- Se rendre sur https://github.com/CrossTheRoadElec/Phoenix-Releases/releases et télécharger la dernière version du zip appelé : `CTRE Phoenix Framework Installer x.xx.xx`
-
-- Deziper le fichier et éxécuter l'installer
-
-- Suivre les [Adding an offline-installed Library](https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/682619-3rd-party-libraries#adding-an-offline-installed-library) instructions de WPI.
-
-
-### Installation de la librairie REV pour les Spark Max
+## Installation de la librairie REV pour les Spark Max
 
 - Se rendre sur http://www.revrobotics.com/sparkmax-software/ et télécharger la dernière version de l'API C++
 
@@ -23,18 +11,20 @@ Cross The Road Electonics pour les VictorSPX en CAN
     Follow the [Adding an offline-installed Library](https://wpilib.screenstepslive.com/s/currentCS/m/getting_started/l/682619-3rd-party-libraries#adding-an-offline-installed-library) instructions from WPI.
 
 
-### Utilisation des librairies WPILib et CTRE
+## Utilisation des librairies WPILib et REV
 
-- Les classes WPILib sont dans `frc/` et celles CTRE dans `ctre/`
+- Les classes WPILib sont dans `frc/` et celles REV dans `rev/`
 
-- Pour inclure toutes les classes d'un coup :
+- Pour inclure toutes les classes WPILib d'un coup :
     ```c++
     #include <frc/WPILib.h>
-    #include <ctre/Phoenix.h>
+    ```
+- Et la classe Spark Max pour le pivot :
+    ```c++
     #include <rev/SparkMax.h>
     ```
 
-- Documentation en ligne [WPILib](http://first.wpi.edu/FRC/roborio/release/docs/cpp/index.html), [CTRE](http://www.ctr-electronics.com/downloads/api/cpp/html/index.html) et [REV](http://www.revrobotics.com/content/sw/max/sw-docs/cpp/index.html)
+- Documentation en ligne [WPILib](http://first.wpi.edu/FRC/roborio/release/docs/cpp/index.html), et [REV](http://www.revrobotics.com/content/sw/max/sw-docs/cpp/index.html)
 
 
 ## Utilisation du layout de Shuffleboard
