@@ -62,8 +62,8 @@ void Robot::RobotInit()
   m_pince.AttraperHatch();
 
   // Thread pour le retour video du pilote
-  std::thread RetourVideoThread(RetourVideo);
-  RetourVideoThread.detach();
+  //std::thread RetourVideoThread(RetourVideo);
+  //RetourVideoThread.detach();
 }
 
 void Robot::RobotPeriodic()
