@@ -8,7 +8,6 @@
 OI Robot::m_oi;
 
 BaseRoulante Robot::m_baseRoulante;
-Elevateur Robot::m_elevateur; 
 Pince Robot::m_pince;
 Pivot Robot::m_pivot;
 
@@ -50,7 +49,6 @@ void Robot::RobotInit()
 {
   // Affiche les commandes en cours d'éxécution de chaque subsystem
   frc::SmartDashboard::PutData(&m_baseRoulante);
-  frc::SmartDashboard::PutData(&m_elevateur);
   frc::SmartDashboard::PutData(&m_pince);
   frc::SmartDashboard::PutData(&m_pivot);
 
@@ -72,7 +70,6 @@ void Robot::RobotPeriodic()
 {
   // Affichage de toutes les infos des subsystems
   m_baseRoulante.Log();
-  m_elevateur.Log();
   m_pince.Log();
   m_pivot.Log();
 }

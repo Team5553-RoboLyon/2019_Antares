@@ -5,9 +5,6 @@
 #include "commands/pince/AttraperObjet.h"
 #include "commands/pince/EjecterObjet.h"
 #include "commands/pivot/SetSetpointPivot.h"
-#include "commands/elevateur/MonterRobot.h"
-#include "commands/elevateur/MonterRouesArrieres.h"
-#include "commands/elevateur/MonterRouesAvant.h"
 
 #include "Robot.h"
 
@@ -26,18 +23,9 @@ OI::OI()
   m_button10.WhenPressed(new SetSetpointPivot(Pivot::HATCH_ARRIERE));
   m_button11.WhenPressed(new SetSetpointPivot(Pivot::CARGO_AVANT));
   m_button12.WhenPressed(new SetSetpointPivot(Pivot::CARGO_ARRIERE));
-
-  m_button1Joystick2.WhileActive(new MonterRobot());
-  m_button3Joystick2.WhileActive(new MonterRouesArrieres());
-  m_button5Joystick2.WhileActive(new MonterRouesAvant());
 }
 
-frc::Joystick& OI::GetJoystick1()
+frc::Joystick& OI::GetJoystick()
 {
-   return m_joystick1;
-}
-
-frc::Joystick& OI::GetJoystick2()
-{
-   return m_joystick2;
+   return m_joystick;
 }

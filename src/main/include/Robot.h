@@ -5,11 +5,8 @@
 #include "OI.h"
 
 #include "subsystems/BaseRoulante.h"
-#include "subsystems/Elevateur.h"
 #include "subsystems/Pince.h"
 #include "subsystems/Pivot.h"
-
-#include "commands/baseRoulante/FaireUneSplineStylee.h"
 
 class Robot : public frc::TimedRobot
 {
@@ -17,7 +14,6 @@ class Robot : public frc::TimedRobot
   static OI m_oi;
 
   static BaseRoulante m_baseRoulante;
-  static Elevateur m_elevateur;
   static Pince m_pince;
   static Pivot m_pivot;
 
