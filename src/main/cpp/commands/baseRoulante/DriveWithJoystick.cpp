@@ -20,6 +20,8 @@ void DriveWithJoystick::Execute()
 		y = 0.0;
   
 	if (abs(z) < 0.175)
+		z = 0.0;
+	else
 		z = (z-0.175)/(1-0.175);
 
   // Exponentielle pour baisser les valeurs basses et laisser les valeurs hautes hautes
