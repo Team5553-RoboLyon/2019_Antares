@@ -55,7 +55,8 @@
               "_type": "Graph",
               "_source0": "network_table:///LiveWindow/BaseRoulante/Encodeur Gauche/Distance",
               "_title": "Encodeur Gauche Distance",
-              "Graph/Visible time": 30.0
+              "Graph/Visible time": 30.0,
+              "Visible data/LiveWindow/BaseRoulante/Encodeur Gauche/Distance": true
             }
           },
           "8,4": {
@@ -67,7 +68,8 @@
               "_type": "Graph",
               "_source0": "network_table:///LiveWindow/BaseRoulante/Encodeur Droit/Distance",
               "_title": "Encodeur Droit Distance",
-              "Graph/Visible time": 30.0
+              "Graph/Visible time": 30.0,
+              "Visible data/LiveWindow/BaseRoulante/Encodeur Droit/Distance": true
             }
           },
           "5,0": {
@@ -233,7 +235,7 @@
               "_source0": "network_table:///SmartDashboard/Angle Pivot",
               "_title": "Angle",
               "Range/Min": -105.0,
-              "Range/Max": -105.0,
+              "Range/Max": 105.0,
               "Visuals/Show value": true
             }
           },
