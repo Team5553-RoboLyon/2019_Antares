@@ -15,7 +15,9 @@ void AttraperCargo::Initialize()
 
 void AttraperCargo::Execute()
 {
-  if(m_timer.Get() > 0.4)
+  if(m_timer.Get() < 0.4)
+    Robot::m_pince.AttraperCargo();
+  else
     Robot::m_pince.StopCargoRampe();
 }
 
